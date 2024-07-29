@@ -1,29 +1,31 @@
 const { StatusCodes } = require('http-status-codes');
 const jwt = require('jsonwebtoken');
 
-const authMiddleware = async (req, res, next) => {
-	// Extract the authorization header
-	const authHeader = req.headers.authorization;
+const authMiddleware = (req, res, next) => {
+	// Extract the token from cookies
+	const token = req.cookies.token;
 
-	// Check if the authorization header is present and has the 'Bearer ' prefix
-	if (!authHeader || !authHeader.startsWith('Bearer')) {
+	if (!token) {
 		return res
 			.status(StatusCodes.UNAUTHORIZED)
-			.json({ msg: 'invalid authentication' });
+			.json({ msg: 'Authentication token not found' });
 	}
 
-	// Extract the token from the header
-	const token = authHeader.split(' ')[1];
-	console.log(authHeader);
-	console.log(token);
 	try {
-		const [username, userid] = jwt.verify(token, process.env.JWT_SECRET);
+		// Verify the token
+		const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+		const { username, userid } = decoded;
+
+		// Attach user information to request object
 		req.user = { username, userid };
+
 		next();
 	} catch (error) {
 		return res
 			.status(StatusCodes.UNAUTHORIZED)
-			.json({ msg: 'authentication invalid' });
+			.json({ msg: 'Not authorized, invalid token' });
 	}
 };
+
 module.exports = authMiddleware;

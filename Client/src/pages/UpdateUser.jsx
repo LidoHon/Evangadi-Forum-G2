@@ -1,123 +1,152 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import axios from '../axiosConfig'; // Adjust the import according to your project structure
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-const UpdateUser = () => {
-	const [formData, setFormData] = useState({
-		username: '',
-		firstname: '',
-		lastname: '',
-		email: '',
-		password: '',
-	});
-	const [error, setError] = useState(null);
-	const navigate = useNavigate();
+const UpdateProfile = () => {
+	const [userId, setUserId] = useState('');
+	const [username, setUsername] = useState('');
+	const [firstname, setFirstname] = useState('');
+	const [lastname, setLastname] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [showPassword, setShowPassword] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState('');
+
+	const togglePasswordVisibility = () => {
+		setShowPassword(!showPassword);
+	};
 
 	useEffect(() => {
+		// Fetch user info or get userId from local storage or context
 		const fetchUserData = async () => {
 			try {
-				const response = await axios.get('/users/check'); // Fetch user data
-				setFormData({
-					username: response.data.username || '',
-					firstname: response.data.firstname || '',
-					lastname: response.data.lastname || '',
-					email: response.data.email || '',
-					password: '', // Set initial password as empty string
-				});
+				// Example of getting userId from local storage (if stored there)
+				const storedUserId = localStorage.getItem('userId');
+				if (storedUserId) {
+					setUserId(storedUserId);
+					const response = await axios.get(`/users/check`, {
+						headers: {
+							Authorization: `Bearer ${localStorage.getItem('token')}`,
+						},
+					});
+					const userData = response.data;
+					setUsername(userData.username);
+					setFirstname(userData.firstname);
+					setLastname(userData.lastname);
+					setEmail(userData.email);
+				} else {
+					// Handle case where userId is not available
+					console.error('User ID is not available');
+				}
 			} catch (err) {
-				setError(err.message);
+				console.error('Failed to fetch user data', err);
 			}
 		};
 
 		fetchUserData();
 	}, []);
 
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData({
-			...formData,
-			[name]: value,
-		});
-	};
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setLoading(true);
+		setError('');
+
 		try {
-			await axios.put('/users/updateUser', formData);
-			navigate('/profile');
+			const response = await axios.put(
+				'/users/check',
+				{
+					userid: userId,
+					username,
+					firstname,
+					lastname,
+					email,
+					password,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem('token')}`,
+					},
+				}
+			);
+
+			alert(response.data.msg);
 		} catch (err) {
-			setError(err.message);
+			setError(err.response?.data?.msg || 'Something went wrong');
+		} finally {
+			setLoading(false);
 		}
 	};
 
-	if (error) return <p>Error: {error}</p>;
-
 	return (
-		<div className="container mx-auto p-4">
-			<h1 className="text-2xl font-bold mb-4">Update Profile</h1>
-			<form
-				onSubmit={handleSubmit}
-				className="bg-white p-4 rounded-lg shadow-md"
-			>
-				<div className="mb-4">
-					<label className="block text-gray-700">Username</label>
+		<div className="w-full max-w-md mx-auto p-6 bg-white shadow-lg rounded-md">
+			<h2 className="text-2xl font-bold text-center mb-4">Update Profile</h2>
+			{error && <p className="text-red-500 text-center mb-4">{error}</p>}
+			<form onSubmit={handleSubmit}>
+				<input
+					type="text"
+					placeholder="User ID"
+					className="w-full p-2 border border-gray-300 rounded-md mb-4"
+					value={userId}
+					readOnly
+				/>
+				<input
+					type="text"
+					placeholder="Username"
+					className="w-full p-2 border border-gray-300 rounded-md mb-4"
+					value={username}
+					onChange={(e) => setUsername(e.target.value)}
+				/>
+				<input
+					type="text"
+					placeholder="First Name"
+					className="w-full p-2 border border-gray-300 rounded-md mb-4"
+					value={firstname}
+					onChange={(e) => setFirstname(e.target.value)}
+				/>
+				<input
+					type="text"
+					placeholder="Last Name"
+					className="w-full p-2 border border-gray-300 rounded-md mb-4"
+					value={lastname}
+					onChange={(e) => setLastname(e.target.value)}
+				/>
+				<input
+					type="email"
+					placeholder="Email"
+					className="w-full p-2 border border-gray-300 rounded-md mb-4"
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+				/>
+				<div className="relative mb-4">
 					<input
-						type="text"
-						name="username"
-						value={formData.username}
-						onChange={handleChange}
-						className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+						type={showPassword ? 'text' : 'password'}
+						placeholder="Password"
+						className="w-full p-2 border border-gray-300 rounded-md"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
 					/>
-				</div>
-				<div className="mb-4">
-					<label className="block text-gray-700">First Name</label>
-					<input
-						type="text"
-						name="firstname"
-						value={formData.firstname}
-						onChange={handleChange}
-						className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-					/>
-				</div>
-				<div className="mb-4">
-					<label className="block text-gray-700">Last Name</label>
-					<input
-						type="text"
-						name="lastname"
-						value={formData.lastname}
-						onChange={handleChange}
-						className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-					/>
-				</div>
-				<div className="mb-4">
-					<label className="block text-gray-700">Email</label>
-					<input
-						type="email"
-						name="email"
-						value={formData.email}
-						onChange={handleChange}
-						className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-					/>
-				</div>
-				<div className="mb-4">
-					<label className="block text-gray-700">Password</label>
-					<input
-						type="password"
-						name="password"
-						value={formData.password}
-						onChange={handleChange}
-						className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-					/>
+					<div
+						className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+						onClick={togglePasswordVisibility}
+					>
+						{showPassword ? (
+							<FaEyeSlash className="text-gray-500" />
+						) : (
+							<FaEye className="text-gray-500" />
+						)}
+					</div>
 				</div>
 				<button
 					type="submit"
-					className="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+					className="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+					disabled={loading}
 				>
-					Update
+					{loading ? 'Updating...' : 'Update Profile'}
 				</button>
 			</form>
 		</div>
 	);
 };
 
-export default UpdateUser;
+export default UpdateProfile;

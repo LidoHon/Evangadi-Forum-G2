@@ -1,10 +1,9 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const userRoutes = require('./Routes/UserRoute');
 const questionsRoutes = require('./Routes/questionRoute');
-// db connection
 const dbConnection = require('./Database/dbconfig');
 const cors = require('cors');
-// authentication middleware file
 const authMiddleware = require('./middleware/authMiddleware');
 require('dotenv').config();
 
@@ -14,10 +13,24 @@ const app = express();
 // assigning port
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// middlewares
+// app.use(cors());
+const corsOptions = {
+	origin: 'http://localhost:5173', // Your frontend URL
+	credentials: true, // Allow cookies and authorization headers
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
 app.use(express.urlencoded({ extended: true }));
 // json middleware to extract json data
 app.use(express.json());
+
+// cookie parser middle ware
+app.use(cookieParser());
+
+// routes
 
 // user routes middleware
 app.use('/api/users', userRoutes);
@@ -26,10 +39,6 @@ app.use('/api/users', userRoutes);
 app.use('/api/questions', authMiddleware, questionsRoutes);
 
 // answer routes middleware
-
-// app.get('/', (req, res) => {
-// 	res.send('hey');
-// });
 
 const start = async () => {
 	try {
