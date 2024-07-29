@@ -80,7 +80,7 @@ const login = async (req, res) => {
 		const username = user[0].username;
 		const userid = user[0].userid;
 		const token = jwt.sign({ username, userid }, process.env.JWT_SECRET, {
-			expiresIn: '3d',
+			expiresIn: '30d',
 		});
 
 		return res
@@ -149,7 +149,6 @@ const updateUser = async (req, res) => {
 			.status(StatusCodes.INTERNAL_SERVER_ERROR)
 			.json({ msg: 'something went wrong. Try again' });
 	}
-	res.send('updated');
 };
 
 module.exports = { register, login, checkUser, updateUser };

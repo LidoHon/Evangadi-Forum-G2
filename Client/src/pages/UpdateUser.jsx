@@ -16,7 +16,7 @@ const UpdateUser = () => {
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
-				const response = await axios.get('/api/users/check'); // Fetch user data
+				const response = await axios.get('/users/check'); // Fetch user data
 				setFormData({
 					username: response.data.username || '',
 					firstname: response.data.firstname || '',
@@ -43,7 +43,7 @@ const UpdateUser = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			await axios.put('/api/users/UpdateUser', formData);
+			await axios.put('/users/updateUser', formData);
 			navigate('/profile');
 		} catch (err) {
 			setError(err.message);
