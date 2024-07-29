@@ -122,8 +122,17 @@ const Register = () => {
 				type="submit"
 				className="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
 			>
-				Register
+				Agree and Join
 			</button>
+			
+			<p className="text-sm text-center mb-6">
+				I agree to the privacy policy and terms of service{' '}
+				<Link to="/login">
+					<span className="text-blue-500 underline hover:text-blue-700">
+						Already have an account?
+					</span>
+				</Link>
+			</p>
 		</form>
 	);
 };
