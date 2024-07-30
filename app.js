@@ -83,9 +83,9 @@ app.use('/api/questions', authMiddleware, questionsRoutes);
 const start = async () => {
 	try {
 		const result = await dbConnection.execute("select 'test' ");
-		https.createServer(options, app).listen(PORT, () =>{
+		https.createServer(options, app).listen(5000, () =>{
 			console.log('database connected')
-			console.log(`server running on port ${PORT}`)
+			console.log(`server running on port ${5000}`)
 			// console.log(result)
 		 })} catch (error) {
 		console.log(error.message);
