@@ -1,9 +1,8 @@
-
 const express = require('express');
 ////////////////START///////////////////////////////
-const https = require("https") // added modules
-const fs = require("fs") // added modules
-const path = require("path") // added modules
+const https = require('https'); // added modules
+const fs = require('fs'); // added modules
+const path = require('path'); // added modules
 ////////////////END////////////////////////////////
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./Routes/UserRoute');
@@ -21,16 +20,13 @@ const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
 const certificate = fs.readFileSync(certificatePath, 'utf8');
 ///////////////////////END///////////////////////////////////////////
 
-
 ////////////////////////START/////////////////////////////////////////
 // key and object cert for the https server
 const options = {
-    key: privateKey,
-    cert: certificate
-  };
+	key: privateKey,
+	cert: certificate,
+};
 /////////////////////////END///////////////////////////////////////
-
-
 
 // Initialize Express app
 const app = express();
@@ -40,9 +36,24 @@ const PORT = process.env.PORT || 5000;
 
 // middlewares
 // app.use(cors());
+
+const allowedOrigins = [
+	'https://localhost:5173',
+	'https://localhost:5174',
+
+	// Add more origins to this list if needed. don't forget to Update this list whenever the React development server's URL changes eshi..
+];
+
 const corsOptions = {
-	origin: 'http://localhost:5173', // Your frontend URL
-	credentials: true, // Allow cookies and authorization headers
+	origin: (origin, callback) => {
+		if (allowedOrigins.includes(origin) || !origin) {
+			// Allow requests with no origin (like mobile apps or curl requests but we don't need that for now)
+			callback(null, true);
+		} else {
+			callback(new Error('Not allowed by CORS'));
+		}
+	},
+	credentials: true,
 };
 
 // Apply CORS middleware
@@ -78,16 +89,16 @@ app.use('/api/questions', authMiddleware, questionsRoutes);
 // };
 // start();
 
-
 ////////////////////////START/////////////////////////////////////////
 const start = async () => {
 	try {
 		const result = await dbConnection.execute("select 'test' ");
-		https.createServer(options, app).listen(5000, () =>{
-			console.log('database connected')
-			console.log(`server running on port ${5000}`)
+		https.createServer(options, app).listen(5000, () => {
+			console.log('database connected');
+			console.log(`server running on port ${5000}`);
 			// console.log(result)
-		 })} catch (error) {
+		});
+	} catch (error) {
 		console.log(error.message);
 	}
 };
