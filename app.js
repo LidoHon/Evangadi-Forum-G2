@@ -41,7 +41,6 @@ app.use('/api/question', questionRoute)
 
 // answer routes middleware
 
-
 const start = async () => {
 	try {
 		const result = await dbConnection.execute("select 'test' ");
