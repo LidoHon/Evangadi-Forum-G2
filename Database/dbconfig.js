@@ -89,7 +89,7 @@ const createTables = (connection) => {
 								connection.release();
 							});
 						}
-						// console.log('Tables created successfully');
+						console.log('Tables created successfully');
 						connection.release();
 					});
 				});
