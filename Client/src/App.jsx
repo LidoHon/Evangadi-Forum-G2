@@ -3,21 +3,15 @@ import {
 	createBrowserRouter,
 	createRoutesFromElements,
 	RouterProvider,
-	useNavigate,
-	BrowserRouter,
 } from 'react-router-dom';
 import React from 'react';
-// import { useEffect } from 'react';
 import Home from './pages/Home';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
-// import MainLayout from './layouts/MainLayout';
 import NotFound from './pages/NotFound';
 import UpdateUser from './pages/UpdateUser';
 import ProfilePage from './pages/ProfilePage';
 import MainLayout from './layouts/MainLayout';
-// import axios from './axiosConfig';
-// path="/" element={<MainLayout />}
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route>
@@ -34,19 +28,6 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-	// const navigate = useNavigate();
-
-	// const checkUser = async () => {
-	// 	try {
-	// 		await axios.get('/users/check');
-	// 	} catch (error) {
-	// 		console.log(error.response);
-	// 		navigate('/login');
-	// 	}
-	// };
-	// useEffect(() => {
-	// 	checkUser();
-	// }, []);
 
 	return <RouterProvider router={router} />;
 };
