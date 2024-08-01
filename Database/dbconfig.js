@@ -28,28 +28,31 @@ const createTables = (connection) => {
 
 	const questionsTable = `
         CREATE TABLE IF NOT EXISTS questions (
-            id INT(20) NOT NULL AUTO_INCREMENT,
-            questionid VARCHAR(100) NOT NULL UNIQUE,
+            questionid INT(20) NOT NULL AUTO_INCREMENT,
             userid INT(20) NOT NULL,
             title VARCHAR(50) NOT NULL,
             \`description\` VARCHAR(200) NOT NULL,
             tag VARCHAR(20),
-            PRIMARY KEY (id, questionid),
+			created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY ( questionid),
             FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE
         );
     `;
 
 	const answersTable = `
-        CREATE TABLE IF NOT EXISTS answers (
-            answerid INT(20) NOT NULL AUTO_INCREMENT,
-            userid INT(20) NOT NULL,
-            questionid VARCHAR(100) NOT NULL,
-            answer VARCHAR(200) NOT NULL,
-            PRIMARY KEY (answerid),
-            FOREIGN KEY (questionid) REFERENCES questions(questionid) ON DELETE CASCADE ON UPDATE CASCADE,
-            FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE
-        );
-    `;
+    CREATE TABLE IF NOT EXISTS answers (
+        answerid INT AUTO_INCREMENT NOT NULL,
+        userid INT NOT NULL,
+        questionid INT NOT NULL,
+        answer VARCHAR(200) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (answerid),
+        FOREIGN KEY (questionid) REFERENCES questions(questionid) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE
+    );
+`;
 
 	connection.beginTransaction((err) => {
 		if (err) {

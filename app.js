@@ -7,6 +7,7 @@ const path = require('path'); // added modules
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./Routes/UserRoute');
 const questionsRoutes = require('./Routes/questionRoute');
+const answersRoutes = require('./Routes/answerRoute');
 const dbConnection = require('./Database/dbconfig');
 const cors = require('cors');
 const authMiddleware = require('./middleware/authMiddleware');
@@ -75,6 +76,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/questions', authMiddleware, questionsRoutes);
 
 // answer routes middleware
+
+app.use('/api/questions/:questionId/answers', answersRoutes);
 
 // const start = async () => {
 // 	try {
