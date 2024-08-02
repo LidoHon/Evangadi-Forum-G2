@@ -23,7 +23,7 @@ const routes = createBrowserRouter(
         <Route path="/login/" element={<LoginPage />} />
         <Route path="/update-profile/" element={<UpdateUser />} />
         <Route path="/Profile/" element={<ProfilePage />} />
-        <Route path="/question/id" element={<AnswerUI />} />
+        <Route path="/questions/id" element={<AnswerUI />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Route>
