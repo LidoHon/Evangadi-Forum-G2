@@ -4,7 +4,7 @@ import Paragraph from '../components/Paragraph';
 
 const LoginPage = () => {
 	return (
-		<div className="flex flex-row">
+		<div className="">
 			<Login />
 			<Paragraph />
 		</div>
