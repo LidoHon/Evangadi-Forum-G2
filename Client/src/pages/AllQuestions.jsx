@@ -21,7 +21,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 				const sortedQuestions = response.data
 					? [...response.data].sort(
 							(a, b) => new Date(b.created_at) - new Date(a.created_at)
-					  )
+					    )
 					: [];
 				setQuestions(sortedQuestions);
 				setFilteredQuestions(sortedQuestions);
