@@ -1,0 +1,18 @@
+#answer_container{
+    width: 1200px;
+    height: auto;
+}
+#question_card{
+    width: 80%;
+    
+
+}
+#answer_div{
+    width: 50%;
+}
+#ask_question{
+    width:50% ;
+}
+#input{
+    width: 80%;
+}

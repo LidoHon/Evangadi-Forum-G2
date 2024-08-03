@@ -57,6 +57,11 @@ const corsOptions = {
 	credentials: true,
 };
 
+
+const profileRoutes = require("./Routes/UserRoute"); // Update user
+
+
+
 // Apply CORS middleware
 app.use(cors(corsOptions));
 
@@ -66,6 +71,8 @@ app.use(express.json());
 
 // cookie parser middle ware
 app.use(cookieParser());
+
+app.use("/api", profileRoutes); // Profile route
 
 // routes
 
