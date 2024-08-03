@@ -70,8 +70,8 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 	};
 
 	return (
-		<div className=" p-4 flex flex-col lg:flex-row  h-full mx-32 ">
-			<div className=" mb-3 lg:mb-4 flex flex-col  items-center gap-2 lg:bg-orange-100 w-5/6 lg:w-1/2 group h-60 mt-40">
+		<div className="allQuestion p-4 flex flex-col lg:flex-row  h-full container  mx-auto ">
+			<div className=" mb-3 lg:mb-4 flex flex-col items-center gap-2 lg:bg-orange-100  lg:w-1/2 group lg:h-60 lg:mt-40">
 				<input
 					type="text"
 					placeholder="Search questions..."
