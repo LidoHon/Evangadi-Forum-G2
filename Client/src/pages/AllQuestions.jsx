@@ -4,8 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import avater from '/images/istockphoto-1300845620-612x612.jpg';
 import Spinner from '../components/Spinner';
 import { FaChevronRight, FaRegBookmark, FaBookmark } from 'react-icons/fa';
-import Avatar from '../components/Avatar';
-import { getInitials } from '../utils/getInitials';
+import { FaHandPointRight } from 'react-icons/fa';
 
 const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 	const [questions, setQuestions] = useState([]);
@@ -19,10 +18,6 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 		const fetchQuestions = async () => {
 			try {
 				const response = await axiosBase.get('/questions');
-				// console.log(
-				// 	'Response data (JSON):',
-				// 	JSON.stringify(response.data, null, 2)
-				// );
 				const sortedQuestions = response.data
 					? [...response.data].sort(
 							(a, b) => new Date(b.created_at) - new Date(a.created_at)
@@ -75,8 +70,8 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 	};
 
 	return (
-		<div className=" p-4 flex flex-col lg:flex-row items-center h-full mx-32">
-			<div className=" mb-3 lg:mb-4 flex flex-col justify-center items-center gap-2 md:bg-orange-100 w-5/6 lg:w-1/2">
+		<div className=" p-4 flex flex-col lg:flex-row items-center h-full mx-32 ">
+			<div className=" mb-3 lg:mb-4 flex flex-col justify-center items-center gap-2 lg:bg-orange-100 w-5/6 lg:w-1/2 group">
 				<input
 					type="text"
 					placeholder="Search questions..."
@@ -84,34 +79,46 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 					value={searchTerm}
 					onChange={(e) => setSearchTerm(e.target.value)}
 				/>
-				<button
-					className=" bg-red-800 text-white px-4 py-1 rounded hover:bg-red-600"
-					onClick={handleAskQuestion}
-				>
-					Ask Question
-				</button>
-				<h2 className="text-sm md:text-lg lg:text-2xl font-bold mb-0 md:mb-1">
-					<span className="hidden lg:block">Questions from the Community</span>
-					<span className="block lg:hidden">Questions</span>
-				</h2>
-				<Link
-					to="/saved-questions"
-					className=" text-black hover:underline hover:text-red-800 mb-2"
-				>
-					Saved questions
-				</Link>
+				<div className="flex flex-row gap-4 mb-3 group cursor-pointer ">
+					<div className="flex flex-col mt-3 items-center lg:group-hover:blur-sm lg:hover:!blur-none">
+						<button
+							className=" bg-red-800 text-white px-4 py-1 rounded hover:bg-red-600"
+							onClick={handleAskQuestion}
+						>
+							Ask Question
+						</button>
+						<h2 className="text-sm md:text-lg lg:text-2xl font-bold mb-0 md:mb-1">
+							<span className="hidden lg:block">
+								Questions from the Community
+							</span>
+							<span className="block lg:hidden">Questions</span>
+						</h2>
+						<Link
+							to="/saved-questions"
+							className=" text-black hover:underline hover:text-red-800 mb-2"
+						>
+							Saved questions
+						</Link>
+					</div>
+					<div className="relative hidden lg:flex items-center group-hover:blur-sm hover:!blur-none ">
+						<div className="absolute inset-y-0 left-5 w-1 bg-orange-200"></div>
+						<div className="pl-10 ml-4 text-red-800">
+							<FaHandPointRight size={100} />
+						</div>
+					</div>
+				</div>
 			</div>
 
 			{loading && <Spinner />}
 			{error && (
-				<p className="text-red-500">
+				<p className="text-red-500 font-semibold text-center">
 					Error fetching questions: {error.message}
 				</p>
 			)}
 			{filteredQuestions.length > 0 ? (
-				<ul className=" space-y-4 lg:w-3/6 ">
+				<ul className=" space-y-4 lg:w-3/6 group">
 					{filteredQuestions.map((question) => {
-						// Determine if the question is saved
+						// checking if the question is saved
 						const isSaved = savedQuestions.some(
 							(q) => q.questionid === question.questionid
 						);
@@ -119,7 +126,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 						return (
 							<li
 								key={question.questionid}
-								className="question-item p-1 flex flex-row items-start border-s-sky-100 border-3  border-b-sky-100 rounded shadow"
+								className="question-item p-1 flex flex-row items-start border-s-sky-100 border-3 duration-700  group-hover:scale-[0.95] hover:!scale-100 border-b-sky-100 rounded shadow "
 							>
 								<div className="question-user flex flex-col items-center mb-1 ml-4">
 									<img
@@ -127,11 +134,6 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 										alt="avatar"
 										className="avatar w-12 h-12 rounded-full object-cover"
 									/>
-									{/* <Avatar
-                    initials={getInitials(question.username || 'Anonymous')}
-                    color="#007bff" // You can choose a color or make it dynamic
-                    size={48} // Adjust size as needed
-                  /> */}
 									<span className="username mt-2 text-sm font-medium">
 										{question.username || 'Anonymous'}
 									</span>
@@ -169,7 +171,9 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 					})}
 				</ul>
 			) : (
-				<p>No questions available</p>
+				<p className="text-lg pl-10 lg:text-4xl uppercase text-center font-bold">
+					No questions available!
+				</p>
 			)}
 		</div>
 	);
