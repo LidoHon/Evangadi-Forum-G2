@@ -29,8 +29,8 @@ const SavedQuestions = ({ savedQuestions, setSavedQuestions }) => {
 		navigate('/questions');
 	};
 	return (
-		<div className="p-4 flex  flex-col lg:flex-row items-center h-full container mx-auto">
-			<div className="flex mb-2 lg:mb-4 flex-row w-1/2 lg:bg-orange-100 p-4 items-center gap-10 group">
+		<div className="p-4 flex  flex-col lg:flex-row  h-full container mx-auto">
+			<div className="flex mb-2 lg:mb-4 flex-row w-1/2 lg:bg-orange-100 p-4 items-center gap-10 group h-60 mt-40">
 				<div className="flex-col flex items-center pt-3 pl-3 group-hover:blur-sm hover:!blur-none ">
 					<h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-3">
 						Saved Questions
