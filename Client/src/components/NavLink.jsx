@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const NavLink = () => {
-  return (
-	<div>NavLink</div>
-  )
-}
+	return <div>NavLink</div>;
+};
 
-export default NavLink
+export default NavLink;
