@@ -20,7 +20,7 @@ const AnswerUI = () => {
       <div className="flex">
         <div id={classes.answer_div} className="container p-10">
           <hr />
-          <h1 className="text-center my-5">Answer from Evangadi Community</h1>
+          <h1 className="text-center my-5">Answers from Evangadi Community</h1>
           <hr />
           <div
             id={classes.list_of_answers}
