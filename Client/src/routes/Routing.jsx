@@ -24,9 +24,9 @@ const Routing = () => {
 	const routes = createBrowserRouter(
 		createRoutesFromElements(
 			<Route>
-				<Route path="/" element={<MainLayout />}>
-					<Route index element={<Home />} />
+				<Route index element={<Home />} />
 
+				<Route path="/" element={<MainLayout />}>
 					<Route element={<PrivateRoute />}>
 						<Route
 							path="/questions"
