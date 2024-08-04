@@ -14,7 +14,7 @@ import NotFound from '../pages/NotFound';
 import AllQuestion from '../pages/AllQuestions';
 import SavedQuestions from '../pages/SavedQuestions';
 import PrivateRoute from '../components/PrivateRoutes';
-import AskQuestion from "../pages/askQuestion/askQuestion";
+import AskQuestion from '../pages/askQuestion/askQuestion';
 
 const Routing = () => {
 	const [savedQuestions, setSavedQuestions] = useState([]);
@@ -24,7 +24,7 @@ const Routing = () => {
 			<Route>
 				<Route path="/" element={<MainLayout />}>
 					<Route index element={<Home />} />
-					<Route path="/askquestion" element={<AskQuestion />}/>
+
 					<Route element={<PrivateRoute />}>
 						<Route
 							path="/questions"
@@ -44,6 +44,7 @@ const Routing = () => {
 								/>
 							}
 						/>
+						<Route path="/ask-question" element={<AskQuestion />} />
 						<Route path="/update-profile/" element={<UpdateUser />} />
 					</Route>
 					<Route path="/register" element={<RegisterPage />} />
