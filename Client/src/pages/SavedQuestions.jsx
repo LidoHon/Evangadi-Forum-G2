@@ -73,7 +73,7 @@ const SavedQuestions = ({ savedQuestions, setSavedQuestions }) => {
 								<div className="flex flex-row justify-between pt-3">
 									<p className="mb-2 ml-5">{question.title}</p>
 									<Link
-										to={`/question-details/${question.questionid}`}
+										to={`/questions/${question.questionid}`}
 										className="question-link text-red-800 hover:underline"
 									>
 										<FaChevronRight />

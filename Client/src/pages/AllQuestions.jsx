@@ -21,7 +21,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 				const sortedQuestions = response.data
 					? [...response.data].sort(
 							(a, b) => new Date(b.created_at) - new Date(a.created_at)
-					    )
+					  )
 					: [];
 				setQuestions(sortedQuestions);
 				setFilteredQuestions(sortedQuestions);
@@ -146,7 +146,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 										</div>
 
 										<Link
-											to={`/question-details/${question.questionid}`}
+											to={`/questions/${question.questionid}`}
 											className="question-link text-red-800 hover:underline mt-4"
 										>
 											<FaChevronRight />
