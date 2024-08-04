@@ -20,7 +20,7 @@ const routes = createBrowserRouter(
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login/" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/update-profile/" element={<UpdateUser />} />
         <Route path="/Profile/" element={<ProfilePage />} />
         <Route path="/questions/id" element={<AnswerUI />} />
