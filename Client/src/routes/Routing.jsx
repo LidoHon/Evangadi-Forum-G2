@@ -15,7 +15,7 @@ import AllQuestion from '../pages/AllQuestions';
 import SavedQuestions from '../pages/SavedQuestions';
 import PrivateRoute from '../components/PrivateRoutes';
 import AskQuestion from '../pages/askQuestion/askQuestion';
-
+import AnswerUI from '../pages/answer_Questions/AnswerUI';
 const Routing = () => {
 	const [savedQuestions, setSavedQuestions] = useState([]);
 
@@ -45,6 +45,7 @@ const Routing = () => {
 							}
 						/>
 						<Route path="/ask-question" element={<AskQuestion />} />
+						<Route path="/question-details" element={<AnswerUI />} />
 						<Route path="/update-profile/" element={<UpdateUser />} />
 					</Route>
 					<Route path="/register" element={<RegisterPage />} />

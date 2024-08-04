@@ -1,55 +1,52 @@
-
 .container {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #FAFAFA;
-
+	width: 50%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fafafa;
 }
-.container h1{
-    color: #5C0C9E;
-    text-align: center;
+.container h1 {
+	color: #c53030;
+	text-align: center;
 }
-.general_desc{
-    color: #0c0c0c;
-    font-family: Arial, sans-serif;
-
+.general_desc {
+	color: #0c0c0c;
+	font-family: Arial, sans-serif;
 }
 
 .title {
-    display: inline-block;
-    position: relative;
-    font-size: 25px;
-    margin-left: 50px;
-    padding-top: 10px;
-    font-weight: 300;
+	display: inline-block;
+	position: relative;
+	font-size: 25px;
+	margin-left: 50px;
+	padding-top: 10px;
+	font-weight: 300;
 }
 
 .title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 2px;
-    background-color: rgb(250, 56, 121); 
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 50%;
+	height: 2px;
+	background-color: rgb(197, 48, 48);
 }
 .Summarize {
-    margin-left: 10%;
-    list-style: none;
-    font-size: 20px;
-    padding-bottom: 20px;
-    color: #A5918E;
-    font-family: Roboto, Verdana, Geneva, Tahoma, 'sans-serif';
+	margin-left: 10%;
+	list-style: none;
+	font-size: 20px;
+	padding-bottom: 20px;
+	color: #a5918e;
+	font-family: Roboto, Verdana, Geneva, Tahoma, 'sans-serif';
 }
 
 .Summarize li {
-    margin-bottom: 15px; 
+	margin-bottom: 15px;
 }
 
 .Summarize li svg {
-    margin-right: 10px; 
+	margin-right: 10px;
 }
 form {
-    padding-left: 25px;
+	padding-left: 25px;
 }

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './askQuestion.module.css';
 import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
-
+import { Link } from 'react-router-dom';
 const AskQuestionPage = () => {
 	//useState hook to manage the state of the title, description, tag, error, and success variables
 	const [title, setTitle] = useState('');
@@ -41,7 +41,9 @@ const AskQuestionPage = () => {
 	};
 
 	return (
-		<div className={styles.container}>
+		<div
+			className={`${styles.container} bg-orange-100 p-4 shadow-md rounded-md`}
+		>
 			<h1>Ask a Question</h1>
 			{success && <p className="text-green-500 mb-4">{success}</p>}
 			{error && <p className="text-red-500 mb-4">{error}</p>}
@@ -69,11 +71,20 @@ const AskQuestionPage = () => {
 				</div>
 			</div>
 			<form onSubmit={handleSubmit} className="space-y-4 justify-center">
-				<h2 style={{ textAlign: 'center', fontSize: '35px' }}>
-					Post Your Question
-				</h2>
+				<div className="flex flex-col items-center justify-center text-center">
+					<h2 className="text-2xl md:text-3xl font-bold mb-2 lg:text-4xl">
+						Post Your Question
+					</h2>
+					<Link
+						className="text-black hover:text-gray-700 no-underline"
+						to="/questions"
+					>
+						Go to questions page
+					</Link>
+				</div>
+
 				<div>
-					<label htmlFor="title" className="text-[20px]">
+					<label htmlFor="title" className="text-md font-medium">
 						Title
 					</label>
 					<input
@@ -87,10 +98,7 @@ const AskQuestionPage = () => {
 					/>
 				</div>
 				<div>
-					<label
-						htmlFor="description"
-						className="block text-sm font-medium text-gray-700 text-[20px]"
-					>
+					<label htmlFor="description" className="block text-md font-medium  ">
 						Description
 					</label>
 					<textarea
@@ -106,7 +114,7 @@ const AskQuestionPage = () => {
 					<label
 						htmlFor="tag"
 						placeholder="tag"
-						className="block text-sm font-medium text-gray-700 text-[20px]"
+						className="block text-md font-medium  "
 					>
 						Tag
 					</label>
@@ -121,7 +129,7 @@ const AskQuestionPage = () => {
 				</div>
 				<button
 					type="submit"
-					className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md flex justify-center items-center hover:bg-[#5C0C9E] mx-auto text-[20px]"
+					className="mt-4 px-4 py-2 bg-red-800 text-white rounded-md flex justify-center items-center hover:bg-orange-700 mx-auto text-[20px]"
 				>
 					<span className="mr-2">Send To Community</span>
 					<SendOutlinedIcon style={{ fontSize: 40 }} />
