@@ -5,6 +5,10 @@ import styles from './askQuestion.module.css';
 import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const AskQuestionPage = () => {
 	//useState hook to manage the state of the title, description, tag, error, and success variables
 	const [title, setTitle] = useState('');
@@ -19,22 +23,33 @@ const AskQuestionPage = () => {
 		e.preventDefault();
 
 		try {
-			//axiosBase and useNavigate
 			const response = await axiosBase.post('/questions/askquestion', {
-				title,
-				description,
-				tag,
+			title,
+			description,
+			tag,
 			});
-			console.log(response);
-			setSuccess(response.data.msg);
+			toast.success('Your question is posted successfully!!', {
+			position: 'top-right',
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: 'colored',
+			});
+	
+		  // Delay the navigation to the questions page
+			setTimeout(() => {
 			setTitle('');
 			setDescription('');
 			setTag('');
 			setError(null);
 			navigate('/questions');
+		  }, 2000); // 2 seconds delay
 		} catch (error) {
 			setError(
-				error.response?.data?.msg || 'An error occurred. Please try again.'
+			error.response?.data?.msg || 'An error occurred. Please try again.'
 			);
 			setSuccess(null);
 		}
