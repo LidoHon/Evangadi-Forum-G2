@@ -4,7 +4,7 @@ import Avatar from 'react-avatar';
 import Spinner from '../../components/Spinner';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axiosBase from '../../axiosConfig';
-
+import { toast, ToastContainer } from 'react-toastify';
 const AnswerUI = () => {
 	const { questionid } = useParams();
 	const navigate = useNavigate();
@@ -82,8 +82,8 @@ const AnswerUI = () => {
 	const handleDelete = async () => {
 		try {
 			await axiosBase.delete(`/questions/${questionid}`);
-			alert('Question deleted successfully');
-			navigate('/');
+			toast.success('Question deleted successfully');
+			navigate('/questions');
 		} catch (error) {
 			console.error(
 				'Error deleting question:',

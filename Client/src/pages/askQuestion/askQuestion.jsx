@@ -9,15 +9,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AskQuestionPage = () => {
-	//useState hook to manage the state of the title, description, tag, error, and success variables
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [tag, setTag] = useState('');
 	const [error, setError] = useState(null);
 	const [success, setSuccess] = useState(null);
+	const [postedQuestionId, setPostedQuestionId] = useState(null);
 	const navigate = useNavigate();
 
-	//The handleSubmit function is called when the form is submitted.
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -53,15 +52,11 @@ const AskQuestionPage = () => {
 			setSuccess(null);
 		}
 	};
-	const handleSucess = () => {
-		navigate(`/questions/${question.questionid}`);
-	};
 
 	return (
-		<div
-			className={`${styles.container} bg-orange-100 p-4 shadow-md rounded-md`}
-		>
+		<div className={styles.container}>
 			<h1>Ask a Question</h1>
+
 			{error && <p className="text-red-500 mb-4">{error}</p>}
 			<div className={styles.general_desc}>
 				<p className={styles.title}>Steps to write a good question</p>
@@ -87,20 +82,11 @@ const AskQuestionPage = () => {
 				</div>
 			</div>
 			<form onSubmit={handleSubmit} className="space-y-4 justify-center">
-				<div className="flex flex-col items-center justify-center text-center">
-					<h2 className="text-2xl md:text-3xl font-bold mb-2 lg:text-4xl">
-						Post Your Question
-					</h2>
-					<Link
-						className="text-black hover:text-gray-700 no-underline"
-						to="/questions"
-					>
-						Go to questions page
-					</Link>
-				</div>
-
+				<h2 style={{ textAlign: 'center', fontSize: '35px' }}>
+					Post Your Question
+				</h2>
 				<div>
-					<label htmlFor="title" className="text-md font-medium">
+					<label htmlFor="title" className="text-[20px]">
 						Title
 					</label>
 					<input
@@ -114,7 +100,10 @@ const AskQuestionPage = () => {
 					/>
 				</div>
 				<div>
-					<label htmlFor="description" className="block text-md font-medium  ">
+					<label
+						htmlFor="description"
+						className="block text-sm font-medium text-gray-700 text-[20px]"
+					>
 						Description
 					</label>
 					<textarea
@@ -130,7 +119,7 @@ const AskQuestionPage = () => {
 					<label
 						htmlFor="tag"
 						placeholder="tag"
-						className="block text-md font-medium  "
+						className="block text-sm font-medium text-gray-700 text-[20px]"
 					>
 						Tag
 					</label>
@@ -145,20 +134,23 @@ const AskQuestionPage = () => {
 				</div>
 				<button
 					type="submit"
-					className="mt-4 px-4 py-2 bg-red-800 text-white rounded-md flex justify-center items-center hover:bg-orange-700 mx-auto text-[20px]"
+					className="mt-4 px-4 py-2 bg-orange-700 text-white rounded-md flex justify-center items-center hover:bg-orange-800 mx-auto text-[20px]"
 				>
 					<span className="mr-2">Send To Community</span>
 					<SendOutlinedIcon style={{ fontSize: 40 }} />
 				</button>
 			</form>
 			{success && (
-				<Link
-					to={`/questions/${question.questionid}`}
-					className="text-green-500 mb-4"
+				<button
+					onClick={() => navigate(`/questions/${postedQuestionId}`)}
+					className="mt-2 px-4 py-1 bg-green-600 text-white rounded-md flex justify-center items-center hover:bg-green-800 mx-auto text-[20px]"
 				>
-					See Your Question Destils
-				</Link>
+					See Your Question Details
+				</button>
 			)}
+
+			{/* Toast Container */}
+			<ToastContainer />
 		</div>
 	);
 };
