@@ -45,7 +45,7 @@ const Routing = () => {
 							}
 						/>
 						<Route path="/ask-question" element={<AskQuestion />} />
-						<Route path="/question-details" element={<AnswerUI />} />
+						<Route path="/questions/:questionid" element={<AnswerUI />} />
 						<Route path="/update-profile/" element={<UpdateUser />} />
 					</Route>
 					<Route path="/register" element={<RegisterPage />} />
