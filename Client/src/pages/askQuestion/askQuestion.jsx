@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axiosBase from '../../axiosConfig';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './askQuestion.module.css';
 import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
@@ -85,6 +85,9 @@ const AskQuestionPage = () => {
 				<h2 style={{ textAlign: 'center', fontSize: '35px' }}>
 					Post Your Question
 				</h2>
+				<Link className="text-center text-black no-underline" to="/questions">
+					go to questions page
+				</Link>
 				<div>
 					<label htmlFor="title" className="text-[20px]">
 						Title
