@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const AskQuestionPage = () => {
 	//useState hook to manage the state of the title, description, tag, error, and success variables
 	const [title, setTitle] = useState('');
@@ -24,35 +23,38 @@ const AskQuestionPage = () => {
 
 		try {
 			const response = await axiosBase.post('/questions/askquestion', {
-			title,
-			description,
-			tag,
+				title,
+				description,
+				tag,
 			});
 			toast.success('Your question is posted successfully!!', {
-			position: 'top-right',
-			autoClose: 2000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-			theme: 'colored',
+				position: 'top-right',
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: 'colored',
 			});
-	
-		  // Delay the navigation to the questions page
+
+			// Delay the navigation to the questions page
 			setTimeout(() => {
-			setTitle('');
-			setDescription('');
-			setTag('');
-			setError(null);
-			navigate('/questions');
-		  }, 2000); // 2 seconds delay
+				setTitle('');
+				setDescription('');
+				setTag('');
+				setError(null);
+				navigate('/questions');
+			}, 2000); // 2 seconds delay
 		} catch (error) {
 			setError(
-			error.response?.data?.msg || 'An error occurred. Please try again.'
+				error.response?.data?.msg || 'An error occurred. Please try again.'
 			);
 			setSuccess(null);
 		}
+	};
+	const handleSucess = () => {
+		navigate(`/questions/${question.questionid}`);
 	};
 
 	return (
@@ -60,7 +62,6 @@ const AskQuestionPage = () => {
 			className={`${styles.container} bg-orange-100 p-4 shadow-md rounded-md`}
 		>
 			<h1>Ask a Question</h1>
-			{success && <p className="text-green-500 mb-4">{success}</p>}
 			{error && <p className="text-red-500 mb-4">{error}</p>}
 			<div className={styles.general_desc}>
 				<p className={styles.title}>Steps to write a good question</p>
@@ -150,6 +151,14 @@ const AskQuestionPage = () => {
 					<SendOutlinedIcon style={{ fontSize: 40 }} />
 				</button>
 			</form>
+			{success && (
+				<Link
+					to={`/questions/${question.questionid}`}
+					className="text-green-500 mb-4"
+				>
+					See Your Question Destils
+				</Link>
+			)}
 		</div>
 	);
 };
