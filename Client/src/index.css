@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.background-image-class {
+	background-image: url('./images/bg-svg-f.svg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}

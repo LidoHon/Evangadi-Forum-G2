@@ -10,7 +10,7 @@ const generateToken = (res, username, userid) => {
 	// Set the token as a cookie
 	res.cookie('token', token, {
 		httpOnly: true, // Prevents client-side access to the cookie
-		secure: process.env.NODE_ENV === 'production', // Set to true if using https..since we r not using https while in development
+		secure: process.env.NODE_ENV === true, // Set to true if using https..since we r not using https while in development
 		sameSite: 'strict',
 		maxAge: 30 * 24 * 60 * 60 * 1000, // Cookie expiry in milliseconds
 	});
