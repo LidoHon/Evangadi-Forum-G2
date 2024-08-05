@@ -4,7 +4,9 @@ import Avatar from "react-avatar";
 import Spinner from "../../components/Spinner";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axiosBase from "../../axiosConfig";
+import { Popconfirm } from "antd";
 import { GrLinkNext } from "react-icons/gr";
+
 
 const AnswerUI = () => {
   const { questionid } = useParams();
@@ -33,34 +35,33 @@ const AnswerUI = () => {
     fetchUser();
   }, []);
 
- useEffect(() => {
-   const fetchQuestionDetails = async () => {
-     if (userId === null) return;
+  useEffect(() => {
+    const fetchQuestionDetails = async () => {
+      if (userId === null) return;
 
-     try {
-       // Fetch question details
-       const questionRes = await axiosBase.get(`/questions/${questionid}`);
-       setQuestion(questionRes.data);
+      try {
+        // Fetch question details
+        const questionRes = await axiosBase.get(`/questions/${questionid}`);
+        setQuestion(questionRes.data);
 
-       // Fetch answers by question ID
-       const answersRes = await axiosBase.get(
-         `/questions/${questionid}/answers`
-       );
-       console.log("Fetched answers:", answersRes.data);
-       setAnswers(answersRes.data);
+        // Fetch answers by question ID
+        const answersRes = await axiosBase.get(
+          `/questions/${questionid}/answers`
+        );
+        console.log("Fetched answers:", answersRes.data);
+        setAnswers(answersRes.data);
 
-       if (Number(userId) === Number(questionRes.data.userid)) {
-         setIsOwner(true);
-       }
-     } catch (error) {
-       setError("An error occurred while fetching the question details.");
-       console.error("Error fetching question details:", error);
-     }
-   };
+        if (Number(userId) === Number(questionRes.data.userid)) {
+          setIsOwner(true);
+        }
+      } catch (error) {
+        setError("An error occurred while fetching the question details.");
+        console.error("Error fetching question details:", error);
+      }
+    };
 
-   fetchQuestionDetails();
- }, [questionid, userId]);
-
+    fetchQuestionDetails();
+  }, [questionid, userId]);
 
   const handlePostAnswer = async () => {
     if (!newAnswer.trim()) return;
@@ -179,7 +180,6 @@ const AnswerUI = () => {
           <h1 className="my-5 text-2xl">Answer from Evangadi Community</h1>
 
           <hr />
-          {console.log(answers)}
           {answers.length > 0 ? (
             answers.map((answer) => (
               <div
@@ -195,26 +195,29 @@ const AnswerUI = () => {
                   className="mb-2"
                 />
                 <p className="mb-2">{answer.answer}</p>
-                {console.log(answer)}
                 {Number(userId) === Number(answer.userid) && (
                   <div>
-                    <button
-                      className="px-3 py-1 g-4 bg-green-800 rounded-sm text-white mr-5 hover:bg-green-700 transition duration-300 ease-in-out hover:translate-y-1"
-                      onClick={() =>
-                        handleEditAnswer(
-                          answer.id,
-                          prompt("Edit your answer:", answer.content)
-                        )
-                      }
+                    <Link to={`/questions/edit/${answer.id}`}>
+                      <button
+                        className="px-3 py-1 bg-white text-green-800 border-2 border-green-800 rounded-sm mr-5 hover:bg-green-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1"
+                        onClick={() => handleEditAnswer(answer.id)}
+                      >
+                        Edit
+                      </button>
+                    </Link>
+                    <Popconfirm
+                      title="Delete the task"
+                      description="Are you sure to delete this task?"
+                      okText="Yes"
+                      cancelText="No"
                     >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDeleteAnswer(answer.id)}
-                      className="px-3 py-1 g-4 bg-red-800 rounded-sm text-white mr-5 hover:bg-red-700 transition duration-300 ease-in-out hover:translate-y-1"
-                    >
-                      Delete
-                    </button>
+                      <button
+                        onClick={() => handleDeleteAnswer(answer.id)}
+                        className="px-3 py-1 bg-white text-red-800 border-2 border-red-800 rounded-sm mr-5 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1"
+                      >
+                        Delete
+                      </button>
+                    </Popconfirm>
                   </div>
                 )}
               </div>
