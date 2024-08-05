@@ -1,13 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Header.css";
+import Login from "./Login";
 
 const Header = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
+  };
+
+  // to login route handller function
+  const [formVisible, setFormVisible] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".login-container")) {
+        setFormVisible(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const handleButtonClick = (event) => {
+    event.stopPropagation(); // Prevent triggering the document click handler
+    setFormVisible(true);
   };
 
   return (
@@ -34,7 +57,19 @@ const Header = () => {
               )}
             </span>
           </li>
-          <li className="login-css">Login</li>
+
+          <li className="">
+            <div>
+              <button className="login-css" onClick={handleButtonClick}>
+                Login
+              </button>
+              {formVisible && (
+                <div onClick={(e) => e.stopPropagation()}>
+                  <Login />
+                </div>
+              )}
+            </div>
+          </li>
         </ul>
       </div>
     </div>
