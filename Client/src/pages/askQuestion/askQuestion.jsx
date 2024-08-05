@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './askQuestion.module.css';
 import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
-import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -34,7 +33,6 @@ const AskQuestionPage = () => {
 				pauseOnHover: true,
 				draggable: true,
 				progress: undefined,
-				theme: 'colored',
 			});
 
 			// Delay the navigation to the questions page

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axiosBase from '../axiosConfig';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 const EditQuestionPage = () => {
 	const { questionid } = useParams();
@@ -54,8 +54,18 @@ const EditQuestionPage = () => {
 			);
 			setSuccess(response.data.message);
 			setError(null);
-			toast.success('Your question updated successfully!');
-			navigate(`/questions/${questionid}`);
+			toast.success('Your question updated successfully!!!', {
+				position: 'top-right',
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+			setTimeout(() => {
+				navigate(`/questions/${questionid}`);
+			}, 2000);
 		} catch (error) {
 			setError(
 				error.response?.data?.message || 'An error occurred. Please try again.'
@@ -67,7 +77,7 @@ const EditQuestionPage = () => {
 	return (
 		<div className="max-w-lg mx-auto p-4 bg-white shadow-lg mt-10">
 			<h1 className="text-2xl font-bold mb-4 text-center">Edit Question</h1>
-			{success && <p className="text-green-500 mb-4">{success}</p>}
+			{/* {success && <p className="text-green-500 mb-4">{success}</p>} */}
 			{error && <p className="text-red-500 mb-4">{error}</p>}
 			<form onSubmit={handleSubmit} className="space-y-4">
 				<div>
@@ -128,6 +138,7 @@ const EditQuestionPage = () => {
 					Update
 				</button>
 			</form>
+			<ToastContainer />
 		</div>
 	);
 };

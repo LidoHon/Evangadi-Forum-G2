@@ -82,8 +82,18 @@ const AnswerUI = () => {
 	const handleDelete = async () => {
 		try {
 			await axiosBase.delete(`/questions/${questionid}`);
-			toast.success('Question deleted successfully');
-			navigate('/questions');
+			toast.success('Question deleted successfully!!', {
+				position: 'top-right',
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+			setTimeout(() => {
+				navigate('/questions');
+			}, 2000);
 		} catch (error) {
 			console.error(
 				'Error deleting question:',
@@ -174,6 +184,7 @@ const AnswerUI = () => {
 					</button>
 				</div>
 			</div>
+			<ToastContainer />
 		</div>
 	);
 };
