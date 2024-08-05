@@ -95,19 +95,19 @@ const AnswerUI = () => {
       console.error("Error posting answer:", error);
     }
   };
-
-  const handleDeleteAnswer = async (answerId) => {
-    try {
-      await axiosBase.delete(`/answers/${answerId}`, {
-        withCredentials: true,
-      });
-      setAnswers((prevAnswers) =>
-        prevAnswers.filter((answer) => answer.id !== answerId)
-      );
-    } catch (error) {
-      console.error("Error deleting answer:", error);
-    }
-  };
+console.log(questionid)
+ const handleDeleteAnswer = async (answerId) => {
+   try {
+     await axiosBase.delete(`/questions/${questionId}/answers/${answerId}`, {
+       withCredentials: true,
+     });
+     setAnswers((prevAnswers) =>
+       prevAnswers.filter((answer) => answer.id !== answerId)
+     );
+   } catch (error) {
+     console.error("Error deleting answer:", error);
+   }
+ };
 
   const handleEditAnswer = async (answerId, newContent) => {
     try {
@@ -159,18 +159,25 @@ const AnswerUI = () => {
         </p>
         {isOwner && (
           <div className="mt-4">
-            <Link
-              to={`/questions/edit/${questionid}`}
-              className="px-3 py-1 g-4 bg-green-800 rounded-sm text-white mr-5"
-            >
-              Edit Question
+            <Link to={`/questions/edit/${questionid}`}>
+              <button className="px-3 py-1 bg-white text-green-800 border-2 border-green-800 rounded-sm mr-5 hover:bg-green-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1">
+                Edit Question
+              </button>
             </Link>
-            <button
-              className="px-3 py-1 g-4 bg-red-800 rounded-sm text-white mr-5"
-              onClick={() => handleDelete(questionid)}
+
+            <Popconfirm
+              title="Delete the task"
+              description="Are you sure to delete this task?"
+              okText="Yes"
+              cancelText="No"
             >
-              Delete
-            </button>
+              <button
+                className="px-3 py-1 bg-white text-red-800 border-2 border-red-800 rounded-sm mr-5 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1"
+                onClick={() => handleDelete(questionid)}
+              >
+                Delete
+              </button>
+            </Popconfirm>
           </div>
         )}
       </div>
@@ -188,7 +195,7 @@ const AnswerUI = () => {
                 className="container shadow-lg my-3 p-8"
               >
                 <Avatar
-                  name={answer.username}
+                  name={question.username}
                   round={true}
                   size="40px"
                   email="abe@gmail.com"
