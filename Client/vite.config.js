@@ -11,16 +11,16 @@ const certificate = fs.readFileSync(certificatePath, 'utf8');
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  server: {
-    https: {
-      key: privateKey,
-      cert: certificate,
-    },
-    port: 5173, // Port for Vite development server
-    cors: {
-      origin: "https://localhost:5000", //  backend URL
-      credentials: true,
-    },
-  },
+	plugins: [react()],
+	server: {
+		https: {
+			key: privateKey,
+			cert: certificate,
+		},
+		port: 5173, // Port for Vite development server
+		cors: {
+			origin: 'https://localhost:5000', //  backend URL
+			credentials: true,
+		},
+	},
 });
