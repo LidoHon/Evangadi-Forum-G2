@@ -96,7 +96,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
             <span className="hidden lg:block">
               Questions from the Community
             </span>
-            <span className="block lg:hidden">Questions</span>
+            <span className="block lg:hidden text-2xl">Search Questions</span>
             <div className="relative hidden lg:flex items-center  hover:!blur-none ">
               <div className="absolute inset-y-0 left-5 w-1 bg-orange-200"></div>
             </div>
@@ -112,7 +112,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
             <div className="flex flex-col mt-3 lg:hover:!blur-none">
               <h2 className="font-semibold">Have a question in mind?</h2>
               <button
-                className="py-4 sm:px-28 mt-3 rounded-sm bg-orange-500 text-white  hover:bg-orange-700 transition duration-300 ease-in-out hover:translate-x-1 hover:translate-y-1"
+                className="py-4 sm:px-28 mt-3 rounded-sm bg-orange-800 text-white  hover:bg-orange-600 transition duration-300 ease-in-out hover:translate-x-1 hover:translate-y-1"
                 onClick={handleAskQuestion}
               >
                 Ask Question
@@ -125,7 +125,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
               
               <Link
                 to="/saved-questions"
-                className=" text-orange-700 font-serif mb-2 no-underline flex mt-5 hover:text-orange-600"
+                className=" text-orange-700 font-serif mb-2 no-underline flex mt-5 hover:text-orange-600 font-bold"
               >
                 Saved questions
                 <FaBookmark className="text-red-800 mt-2" />
@@ -171,7 +171,10 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
                   <div className="flex flex-row justify-between mr-4">
                     <div className="ml-10 flex flex-col mt-3">
                       <p className="mb-2 ">{question.title}</p>
-                      <p className="">tag:{question.tag}</p>
+                      <p>
+                        <span className="text-orange-800 font-bold">tag:</span>
+                        {question.tag}
+                      </p>
                     </div>
 
                     <Link
