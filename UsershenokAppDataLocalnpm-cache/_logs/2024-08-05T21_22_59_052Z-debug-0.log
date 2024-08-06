@@ -1,0 +1,467 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.5.2
+2 info using node@v20.13.1
+3 timing npm:load:whichnode Completed in 1ms
+4 timing config:load:defaults Completed in 2ms
+5 timing config:load:file:C:\Program Files\nodejs\node_modules\npm\npmrc Completed in 2ms
+6 timing config:load:builtin Completed in 2ms
+7 timing config:load:cli Completed in 1ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:C:\Evangadi\Phase-4\GroupFIle\Evangadi-Forum-G2\.npmrc Completed in 0ms
+10 timing config:load:project Completed in 2ms
+11 timing config:load:file:C:\Users\henok\.npmrc Completed in 0ms
+12 timing config:load:user Completed in 0ms
+13 timing config:load:file:C:\Evangadi\Phase-4\GroupFIle\Evangadi-Forum-G2\UsershenokAppDataRoamingnpm\etc\npmrc Completed in 0ms
+14 timing config:load:global Completed in 1ms
+15 timing config:load:setEnvs Completed in 1ms
+16 timing config:load Completed in 12ms
+17 timing npm:load:configload Completed in 12ms
+18 timing config:load:flatten Completed in 3ms
+19 timing npm:load:mkdirpcache Completed in 1ms
+20 timing npm:load:mkdirplogs Completed in 0ms
+21 verbose title npm install @mui/icons-material
+22 verbose argv "install" "@mui/icons-material"
+23 timing npm:load:setTitle Completed in 1ms
+24 timing npm:load:display Completed in 0ms
+25 verbose logfile logs-max:10 dir:C:\Evangadi\Phase-4\GroupFIle\Evangadi-Forum-G2\UsershenokAppDataLocalnpm-cache\_logs\2024-08-05T21_22_59_052Z-
+26 verbose logfile C:\Evangadi\Phase-4\GroupFIle\Evangadi-Forum-G2\UsershenokAppDataLocalnpm-cache\_logs\2024-08-05T21_22_59_052Z-debug-0.log
+27 timing npm:load:logFile Completed in 33ms
+28 timing npm:load:timers Completed in 0ms
+29 timing npm:load:configScope Completed in 0ms
+30 timing npm:load Completed in 82ms
+31 timing arborist:ctor Completed in 1ms
+32 silly logfile done cleaning log files
+33 timing arborist:ctor Completed in 0ms
+34 timing idealTree:init Completed in 217ms
+35 timing idealTree:userRequests Completed in 2ms
+36 silly idealTree buildDeps
+37 silly fetch manifest @mui/icons-material@*
+38 http fetch GET 200 https://registry.npmjs.org/@mui%2ficons-material 244ms (cache miss)
+39 silly fetch manifest @mui/material@^5.0.0
+40 http fetch GET 200 https://registry.npmjs.org/@mui%2fmaterial 81ms (cache miss)
+41 silly fetch manifest @emotion/react@^11.5.0
+42 http fetch GET 200 https://registry.npmjs.org/@emotion%2freact 71ms (cache miss)
+43 silly fetch manifest react@>=16.8.0
+44 http fetch GET 200 https://registry.npmjs.org/react 67ms (cache hit)
+45 silly fetch manifest @emotion/styled@^11.3.0
+46 http fetch GET 200 https://registry.npmjs.org/@emotion%2fstyled 81ms (cache miss)
+47 silly fetch manifest @types/react@^17.0.0 || ^18.0.0
+48 http fetch GET 200 https://registry.npmjs.org/@types%2freact 260ms (cache miss)
+49 silly fetch manifest react-dom@^17.0.0 || ^18.0.0
+50 http fetch GET 200 https://registry.npmjs.org/react-dom 228ms (cache miss)
+51 silly placeDep ROOT @mui/icons-material@5.16.6 OK for: server@1.0.0 want: *
+52 silly placeDep ROOT @mui/material@5.16.6 OK for: @mui/icons-material@5.16.6 want: ^5.0.0
+53 silly placeDep ROOT react-dom@18.3.1 OK for: @mui/material@5.16.6 want: ^17.0.0 || ^18.0.0
+54 silly fetch manifest clsx@^2.1.0
+55 silly fetch manifest csstype@^3.1.3
+56 silly fetch manifest react-is@^18.3.1
+57 silly fetch manifest @mui/types@^7.2.15
+58 silly fetch manifest @mui/utils@^5.16.6
+59 silly fetch manifest @mui/system@^5.16.6
+60 silly fetch manifest @popperjs/core@^2.11.8
+61 silly fetch manifest react-transition-group@^4.4.5
+62 silly fetch manifest @mui/core-downloads-tracker@^5.16.6
+63 silly fetch manifest @types/react-transition-group@^4.4.10
+64 silly fetch manifest scheduler@^0.23.2
+65 http fetch GET 200 https://registry.npmjs.org/react-is 149ms (cache hit)
+66 http fetch GET 200 https://registry.npmjs.org/clsx 238ms (cache miss)
+67 http fetch GET 200 https://registry.npmjs.org/@mui%2ftypes 275ms (cache miss)
+68 http fetch GET 200 https://registry.npmjs.org/@types%2freact-transition-group 284ms (cache miss)
+69 http fetch GET 200 https://registry.npmjs.org/react-transition-group 290ms (cache miss)
+70 http fetch GET 200 https://registry.npmjs.org/@mui%2futils 307ms (cache miss)
+71 http fetch GET 200 https://registry.npmjs.org/csstype 323ms (cache miss)
+72 http fetch GET 200 https://registry.npmjs.org/@mui%2fsystem 332ms (cache miss)
+73 http fetch GET 200 https://registry.npmjs.org/@popperjs%2fcore 342ms (cache miss)
+74 http fetch GET 200 https://registry.npmjs.org/@mui%2fcore-downloads-tracker 368ms (cache miss)
+75 http fetch GET 200 https://registry.npmjs.org/scheduler 433ms (cache miss)
+76 timing idealTree:#root Completed in 1708ms
+77 timing idealTree:node_modules/@mui/icons-material Completed in 0ms
+78 silly fetch manifest react@^17.0.0 || ^18.0.0
+79 silly placeDep ROOT @mui/core-downloads-tracker@5.16.6 OK for: @mui/material@5.16.6 want: ^5.16.6
+80 silly placeDep ROOT @mui/system@5.16.6 OK for: @mui/material@5.16.6 want: ^5.16.6
+81 silly placeDep ROOT @mui/types@7.2.15 OK for: @mui/material@5.16.6 want: ^7.2.15
+82 silly placeDep ROOT @mui/utils@5.16.6 OK for: @mui/material@5.16.6 want: ^5.16.6
+83 silly placeDep ROOT @popperjs/core@2.11.8 OK for: @mui/material@5.16.6 want: ^2.11.8
+84 silly placeDep ROOT @types/react-transition-group@4.4.10 OK for: @mui/material@5.16.6 want: ^4.4.10
+85 silly placeDep ROOT clsx@2.1.1 OK for: @mui/material@5.16.6 want: ^2.1.0
+86 silly placeDep ROOT csstype@3.1.3 OK for: @mui/material@5.16.6 want: ^3.1.3
+87 silly placeDep node_modules/@mui/material react-is@18.3.1 OK for: @mui/material@5.16.6 want: ^18.3.1
+88 silly placeDep ROOT react-transition-group@4.4.5 OK for: @mui/material@5.16.6 want: ^4.4.5
+89 silly fetch manifest @mui/styled-engine@^5.16.6
+90 silly fetch manifest @mui/private-theming@^5.16.6
+91 silly fetch manifest clsx@^2.1.1
+92 silly fetch manifest @types/prop-types@^15.7.12
+93 silly fetch manifest @types/react@*
+94 silly fetch manifest dom-helpers@^5.0.1
+95 http fetch GET 200 https://registry.npmjs.org/dom-helpers 64ms (cache miss)
+96 http fetch GET 200 https://registry.npmjs.org/@types%2fprop-types 72ms (cache miss)
+97 http fetch GET 200 https://registry.npmjs.org/@mui%2fprivate-theming 99ms (cache miss)
+98 http fetch GET 200 https://registry.npmjs.org/@mui%2fstyled-engine 104ms (cache miss)
+99 timing idealTree:node_modules/@mui/material Completed in 141ms
+100 timing idealTree:node_modules/@mui/core-downloads-tracker Completed in 0ms
+101 silly placeDep ROOT @mui/private-theming@5.16.6 OK for: @mui/system@5.16.6 want: ^5.16.6
+102 silly placeDep ROOT @mui/styled-engine@5.16.6 OK for: @mui/system@5.16.6 want: ^5.16.6
+103 silly fetch manifest @emotion/cache@^11.11.0
+104 http fetch GET 200 https://registry.npmjs.org/@emotion%2fcache 81ms (cache miss)
+105 timing idealTree:node_modules/@mui/system Completed in 97ms
+106 timing idealTree:node_modules/@mui/private-theming Completed in 1ms
+107 silly placeDep ROOT @emotion/cache@11.13.1 OK for: @mui/styled-engine@5.16.6 want: ^11.11.0
+108 silly fetch manifest @emotion/memoize@^0.9.0
+109 silly fetch manifest @emotion/sheet@^1.4.0
+110 silly fetch manifest @emotion/utils@^1.4.0
+111 silly fetch manifest @emotion/weak-memoize@^0.4.0
+112 silly fetch manifest stylis@4.2.0
+113 http fetch GET 200 https://registry.npmjs.org/stylis 85ms (cache miss)
+114 http fetch GET 200 https://registry.npmjs.org/@emotion%2fweak-memoize 92ms (cache miss)
+115 http fetch GET 200 https://registry.npmjs.org/@emotion%2futils 101ms (cache miss)
+116 http fetch GET 200 https://registry.npmjs.org/@emotion%2fmemoize 139ms (cache miss)
+117 http fetch GET 200 https://registry.npmjs.org/@emotion%2fsheet 139ms (cache miss)
+118 timing idealTree:node_modules/@mui/styled-engine Completed in 145ms
+119 silly placeDep ROOT @emotion/memoize@0.9.0 OK for: @emotion/cache@11.13.1 want: ^0.9.0
+120 silly placeDep ROOT @emotion/sheet@1.4.0 OK for: @emotion/cache@11.13.1 want: ^1.4.0
+121 silly placeDep ROOT @emotion/utils@1.4.0 OK for: @emotion/cache@11.13.1 want: ^1.4.0
+122 silly placeDep ROOT @emotion/weak-memoize@0.4.0 OK for: @emotion/cache@11.13.1 want: ^0.4.0
+123 silly placeDep ROOT stylis@4.2.0 OK for: @emotion/cache@11.13.1 want: 4.2.0
+124 timing idealTree:node_modules/@emotion/cache Completed in 8ms
+125 timing idealTree:node_modules/@emotion/memoize Completed in 0ms
+126 timing idealTree:node_modules/@emotion/sheet Completed in 0ms
+127 timing idealTree:node_modules/@emotion/utils Completed in 0ms
+128 timing idealTree:node_modules/@emotion/weak-memoize Completed in 0ms
+129 timing idealTree:node_modules/@mui/types Completed in 0ms
+130 silly placeDep ROOT @types/prop-types@15.7.12 OK for: @mui/utils@5.16.6 want: ^15.7.12
+131 silly placeDep node_modules/@mui/utils react-is@18.3.1 OK for: @mui/utils@5.16.6 want: ^18.3.1
+132 timing idealTree:node_modules/@mui/utils Completed in 3ms
+133 timing idealTree:node_modules/@popperjs/core Completed in 1ms
+134 timing idealTree:node_modules/@types/prop-types Completed in 0ms
+135 silly placeDep ROOT @types/react@18.3.3 OK for: @types/react-transition-group@4.4.10 want: *
+136 timing idealTree:node_modules/@types/react-transition-group Completed in 21ms
+137 timing idealTree:node_modules/@types/react Completed in 0ms
+138 timing idealTree:node_modules/clsx Completed in 0ms
+139 timing idealTree:node_modules/csstype Completed in 0ms
+140 silly placeDep ROOT scheduler@0.23.2 OK for: react-dom@18.3.1 want: ^0.23.2
+141 timing idealTree:node_modules/react-dom Completed in 3ms
+142 silly placeDep ROOT dom-helpers@5.2.1 OK for: react-transition-group@4.4.5 want: ^5.0.1
+143 timing idealTree:node_modules/react-transition-group Completed in 3ms
+144 timing idealTree:node_modules/dom-helpers Completed in 0ms
+145 timing idealTree:node_modules/scheduler Completed in 0ms
+146 timing idealTree:node_modules/stylis Completed in 0ms
+147 timing idealTree:node_modules/@mui/material/node_modules/react-is Completed in 0ms
+148 timing idealTree:node_modules/@mui/utils/node_modules/react-is Completed in 0ms
+149 timing idealTree:buildDeps Completed in 2137ms
+150 timing idealTree:fixDepFlags Completed in 6ms
+151 timing idealTree Completed in 2367ms
+152 timing reify:loadTrees Completed in 2370ms
+153 timing reify:diffTrees Completed in 11ms
+154 silly reify moves {}
+155 timing reify:retireShallow Completed in 2ms
+156 timing reify:createSparse Completed in 16ms
+157 timing reify:loadBundles Completed in 0ms
+158 silly audit bulk request {
+158 silly audit   '@babel/runtime': [ '7.25.0' ],
+158 silly audit   '@mapbox/node-pre-gyp': [ '1.0.11' ],
+158 silly audit   abbrev: [ '1.1.1' ],
+158 silly audit   accepts: [ '1.3.8' ],
+158 silly audit   'agent-base': [ '6.0.2' ],
+158 silly audit   debug: [ '4.3.4', '2.6.9', '4.3.6' ],
+158 silly audit   ms: [ '2.1.2', '2.1.3', '2.0.0' ],
+158 silly audit   'ansi-regex': [ '5.0.1' ],
+158 silly audit   'ansi-styles': [ '4.3.0' ],
+158 silly audit   anymatch: [ '3.1.3' ],
+158 silly audit   aproba: [ '2.0.0' ],
+158 silly audit   'are-we-there-yet': [ '2.0.0' ],
+158 silly audit   'array-flatten': [ '1.1.1' ],
+158 silly audit   'balanced-match': [ '1.0.2' ],
+158 silly audit   bcrypt: [ '5.1.1' ],
+158 silly audit   'binary-extensions': [ '2.3.0' ],
+158 silly audit   'body-parser': [ '1.20.2' ],
+158 silly audit   'iconv-lite': [ '0.4.24', '0.6.3' ],
+158 silly audit   'brace-expansion': [ '1.1.11' ],
+158 silly audit   braces: [ '3.0.3' ],
+158 silly audit   'buffer-equal-constant-time': [ '1.0.1' ],
+158 silly audit   bytes: [ '3.1.2' ],
+158 silly audit   'call-bind': [ '1.0.7' ],
+158 silly audit   chalk: [ '4.1.2' ],
+158 silly audit   'supports-color': [ '7.2.0', '5.5.0', '8.1.1' ],
+158 silly audit   charenc: [ '0.0.2' ],
+158 silly audit   chokidar: [ '3.6.0' ],
+158 silly audit   chownr: [ '2.0.0' ],
+158 silly audit   cliui: [ '8.0.1' ],
+158 silly audit   'color-convert': [ '2.0.1' ],
+158 silly audit   'color-name': [ '1.1.4' ],
+158 silly audit   'color-support': [ '1.1.3' ],
+158 silly audit   'concat-map': [ '0.0.1' ],
+158 silly audit   concurrently: [ '8.2.2' ],
+158 silly audit   'console-control-strings': [ '1.1.0' ],
+158 silly audit   'content-disposition': [ '0.5.4' ],
+158 silly audit   'content-type': [ '1.0.5' ],
+158 silly audit   cookie: [ '0.6.0', '0.4.1' ],
+158 silly audit   'cookie-parser': [ '1.4.6' ],
+158 silly audit   'cookie-signature': [ '1.0.6' ],
+158 silly audit   'core-js-pure': [ '3.38.0' ],
+158 silly audit   cors: [ '2.8.5' ],
+158 silly audit   crypt: [ '0.0.2' ],
+158 silly audit   'date-fns': [ '2.30.0' ],
+158 silly audit   'define-data-property': [ '1.1.4' ],
+158 silly audit   delegates: [ '1.0.0' ],
+158 silly audit   denque: [ '2.1.0' ],
+158 silly audit   depd: [ '2.0.0' ],
+158 silly audit   destroy: [ '1.2.0' ],
+158 silly audit   'detect-libc': [ '2.0.3' ],
+158 silly audit   dotenv: [ '16.4.5' ],
+158 silly audit   'ecdsa-sig-formatter': [ '1.0.11' ],
+158 silly audit   'ee-first': [ '1.1.1' ],
+158 silly audit   'emoji-regex': [ '8.0.0' ],
+158 silly audit   encodeurl: [ '1.0.2' ],
+158 silly audit   'es-define-property': [ '1.0.0' ],
+158 silly audit   'es-errors': [ '1.3.0' ],
+158 silly audit   escalade: [ '3.1.2' ],
+158 silly audit   'escape-html': [ '1.0.3' ],
+158 silly audit   etag: [ '1.8.1' ],
+158 silly audit   express: [ '4.19.2' ],
+158 silly audit   'fill-range': [ '7.1.1' ],
+158 silly audit   finalhandler: [ '1.2.0' ],
+158 silly audit   forwarded: [ '0.2.0' ],
+158 silly audit   fresh: [ '0.5.2' ],
+158 silly audit   'fs-minipass': [ '2.1.0' ],
+158 silly audit   minipass: [ '3.3.6', '5.0.0' ],
+158 silly audit   'fs.realpath': [ '1.0.0' ],
+158 silly audit   fsevents: [ '2.3.3' ],
+158 silly audit   'function-bind': [ '1.1.2' ],
+158 silly audit   gauge: [ '3.0.2' ],
+158 silly audit   'generate-function': [ '2.3.1' ],
+158 silly audit   'get-caller-file': [ '2.0.5' ],
+158 silly audit   'get-intrinsic': [ '1.2.4' ],
+158 silly audit   glob: [ '7.2.3' ],
+158 silly audit   'glob-parent': [ '5.1.2' ],
+158 silly audit   gopd: [ '1.0.1' ],
+158 silly audit   'has-flag': [ '4.0.0', '3.0.0' ],
+158 silly audit   'has-property-descriptors': [ '1.0.2' ],
+158 silly audit   'has-proto': [ '1.0.3' ],
+158 silly audit   'has-symbols': [ '1.0.3' ],
+158 silly audit   'has-unicode': [ '2.0.1' ],
+158 silly audit   hasown: [ '2.0.2' ],
+158 silly audit   'http-errors': [ '2.0.0' ],
+158 silly audit   'http-status-codes': [ '2.3.0' ],
+158 silly audit   'https-proxy-agent': [ '5.0.1' ],
+158 silly audit   'ignore-by-default': [ '1.0.1' ],
+158 silly audit   inflight: [ '1.0.6' ],
+158 silly audit   inherits: [ '2.0.4' ],
+158 silly audit   'ipaddr.js': [ '1.9.1' ],
+158 silly audit   'is-binary-path': [ '2.1.0' ],
+158 silly audit   'is-buffer': [ '1.1.6' ],
+158 silly audit   'is-extglob': [ '2.1.1' ],
+158 silly audit   'is-fullwidth-code-point': [ '3.0.0' ],
+158 silly audit   'is-glob': [ '4.0.3' ],
+158 silly audit   'is-number': [ '7.0.0' ],
+158 silly audit   'is-property': [ '1.0.2' ],
+158 silly audit   'is-retina': [ '1.0.3' ],
+158 silly audit   'js-tokens': [ '4.0.0' ],
+158 silly audit   jsonwebtoken: [ '9.0.2' ],
+158 silly audit   jwa: [ '1.4.1' ],
+158 silly audit   jws: [ '3.2.2' ],
+158 silly audit   lodash: [ '4.17.21' ],
+158 silly audit   'lodash.includes': [ '4.3.0' ],
+158 silly audit   'lodash.isboolean': [ '3.0.3' ],
+158 silly audit   'lodash.isinteger': [ '4.0.4' ],
+158 silly audit   'lodash.isnumber': [ '3.0.3' ],
+158 silly audit   'lodash.isplainobject': [ '4.0.6' ],
+158 silly audit   'lodash.isstring': [ '4.0.1' ],
+158 silly audit   'lodash.once': [ '4.1.1' ],
+158 silly audit   long: [ '5.2.3' ],
+158 silly audit   'loose-envify': [ '1.4.0' ],
+158 silly audit   'lru-cache': [ '8.0.5', '7.18.3' ],
+158 silly audit   'make-dir': [ '3.1.0' ],
+158 silly audit   semver: [ '6.3.1', '7.6.2' ],
+158 silly audit   md5: [ '2.3.0' ],
+158 silly audit   'media-typer': [ '0.3.0' ],
+158 silly audit   'merge-descriptors': [ '1.0.1' ],
+158 silly audit   methods: [ '1.1.2' ],
+158 silly audit   mime: [ '1.6.0' ],
+158 silly audit   'mime-db': [ '1.52.0' ],
+158 silly audit   'mime-types': [ '2.1.35' ],
+158 silly audit   minimatch: [ '3.1.2' ],
+158 silly audit   minizlib: [ '2.1.2' ],
+158 silly audit   mkdirp: [ '1.0.4' ],
+158 silly audit   mysql2: [ '3.9.8' ],
+158 silly audit   'named-placeholders': [ '1.1.3' ],
+158 silly audit   negotiator: [ '0.6.3' ],
+158 silly audit   'node-addon-api': [ '5.1.0' ],
+158 silly audit   'node-fetch': [ '2.7.0' ],
+158 silly audit   nodemon: [ '3.1.4' ],
+158 silly audit   nopt: [ '5.0.0' ],
+158 silly audit   'normalize-path': [ '3.0.0' ],
+158 silly audit   npmlog: [ '5.0.1' ],
+158 silly audit   'object-assign': [ '4.1.1' ],
+158 silly audit   'object-inspect': [ '1.13.1' ],
+158 silly audit   'on-finished': [ '2.4.1' ],
+158 silly audit   once: [ '1.4.0' ],
+158 silly audit   parseurl: [ '1.3.3' ],
+158 silly audit   'path-is-absolute': [ '1.0.1' ],
+158 silly audit   'path-to-regexp': [ '0.1.7' ],
+158 silly audit   picomatch: [ '2.3.1' ],
+158 silly audit   'prop-types': [ '15.8.1' ],
+158 silly audit   'proxy-addr': [ '2.0.7' ],
+158 silly audit   'pstree.remy': [ '1.1.8' ],
+158 silly audit   qs: [ '6.11.0' ],
+158 silly audit   'range-parser': [ '1.2.1' ],
+158 silly audit   'raw-body': [ '2.5.2' ],
+158 silly audit   react: [ '18.3.1' ],
+158 silly audit   'react-avatar': [ '5.0.3' ],
+158 silly audit   'react-is': [ '16.13.1', '18.3.1' ],
+158 silly audit   'readable-stream': [ '3.6.2' ],
+158 silly audit   readdirp: [ '3.6.0' ],
+158 silly audit   'regenerator-runtime': [ '0.14.1' ],
+158 silly audit   'require-directory': [ '2.1.1' ],
+158 silly audit   rimraf: [ '3.0.2' ],
+158 silly audit   rxjs: [ '7.8.1' ],
+158 silly audit   'safe-buffer': [ '5.2.1' ],
+158 silly audit   'safer-buffer': [ '2.1.2' ],
+158 silly audit   send: [ '0.18.0' ],
+158 silly audit   'seq-queue': [ '0.0.5' ],
+158 silly audit   'serve-static': [ '1.15.0' ],
+158 silly audit   'set-blocking': [ '2.0.0' ],
+158 silly audit   'set-function-length': [ '1.2.2' ],
+158 silly audit   setprototypeof: [ '1.2.0' ],
+158 silly audit   'shell-quote': [ '1.8.1' ],
+158 silly audit   'side-channel': [ '1.0.6' ],
+158 silly audit   'signal-exit': [ '3.0.7' ],
+158 silly audit   'simple-update-notifier': [ '2.0.0' ],
+158 silly audit   'spawn-command': [ '0.0.2' ],
+158 silly audit   sqlstring: [ '2.3.3' ],
+158 silly audit   statuses: [ '2.0.1' ],
+158 silly audit   string_decoder: [ '1.3.0' ],
+158 silly audit   'string-width': [ '4.2.3' ],
+158 silly audit   'strip-ansi': [ '6.0.1' ],
+158 silly audit   tar: [ '6.2.1' ],
+158 silly audit   'to-regex-range': [ '5.0.1' ],
+158 silly audit   toidentifier: [ '1.0.1' ],
+158 silly audit   touch: [ '3.1.1' ],
+158 silly audit   tr46: [ '0.0.3' ],
+158 silly audit   'tree-kill': [ '1.2.2' ],
+158 silly audit   tslib: [ '2.6.3' ],
+158 silly audit   'type-is': [ '1.6.18' ],
+158 silly audit   undefsafe: [ '2.0.5' ],
+158 silly audit   unpipe: [ '1.0.0' ],
+158 silly audit   'util-deprecate': [ '1.0.2' ],
+158 silly audit   'utils-merge': [ '1.0.1' ],
+158 silly audit   vary: [ '1.1.2' ],
+158 silly audit   'webidl-conversions': [ '3.0.1' ],
+158 silly audit   'whatwg-url': [ '5.0.0' ],
+158 silly audit   'wide-align': [ '1.1.5' ],
+158 silly audit   'wrap-ansi': [ '7.0.0' ],
+158 silly audit   wrappy: [ '1.0.2' ],
+158 silly audit   y18n: [ '5.0.8' ],
+158 silly audit   yallist: [ '4.0.0' ],
+158 silly audit   yargs: [ '17.7.2' ],
+158 silly audit   'yargs-parser': [ '21.1.1' ],
+158 silly audit   '@mui/icons-material': [ '5.16.6' ],
+158 silly audit   '@mui/material': [ '5.16.6' ],
+158 silly audit   'react-dom': [ '18.3.1' ],
+158 silly audit   '@mui/core-downloads-tracker': [ '5.16.6' ],
+158 silly audit   '@mui/system': [ '5.16.6' ],
+158 silly audit   '@mui/types': [ '7.2.15' ],
+158 silly audit   '@mui/utils': [ '5.16.6' ],
+158 silly audit   '@popperjs/core': [ '2.11.8' ],
+158 silly audit   '@types/react-transition-group': [ '4.4.10' ],
+158 silly audit   clsx: [ '2.1.1' ],
+158 silly audit   csstype: [ '3.1.3' ],
+158 silly audit   'react-transition-group': [ '4.4.5' ],
+158 silly audit   '@mui/private-theming': [ '5.16.6' ],
+158 silly audit   '@mui/styled-engine': [ '5.16.6' ],
+158 silly audit   '@emotion/cache': [ '11.13.1' ],
+158 silly audit   '@emotion/memoize': [ '0.9.0' ],
+158 silly audit   '@emotion/sheet': [ '1.4.0' ],
+158 silly audit   '@emotion/utils': [ '1.4.0' ],
+158 silly audit   '@emotion/weak-memoize': [ '0.4.0' ],
+158 silly audit   stylis: [ '4.2.0' ],
+158 silly audit   '@types/prop-types': [ '15.7.12' ],
+158 silly audit   '@types/react': [ '18.3.3' ],
+158 silly audit   scheduler: [ '0.23.2' ],
+158 silly audit   'dom-helpers': [ '5.2.1' ]
+158 silly audit }
+159 verbose reify failed optional dependency C:\Evangadi\Phase-4\GroupFIle\Evangadi-Forum-G2\node_modules\fsevents
+160 silly reify mark deleted [
+160 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\fsevents'
+160 silly reify ]
+161 timing reifyNode:node_modules/fsevents Completed in 19ms
+162 silly tarball no local data for @types/react@https://registry.npmjs.org/@types/react/-/react-18.3.3.tgz. Extracting by manifest.
+163 silly tarball no local data for @emotion/weak-memoize@https://registry.npmjs.org/@emotion/weak-memoize/-/weak-memoize-0.4.0.tgz. Extracting by manifest.
+164 silly tarball no local data for scheduler@https://registry.npmjs.org/scheduler/-/scheduler-0.23.2.tgz. Extracting by manifest.
+165 silly tarball no local data for dom-helpers@https://registry.npmjs.org/dom-helpers/-/dom-helpers-5.2.1.tgz. Extracting by manifest.
+166 silly tarball no local data for @types/prop-types@https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.12.tgz. Extracting by manifest.
+167 silly tarball no local data for @emotion/sheet@https://registry.npmjs.org/@emotion/sheet/-/sheet-1.4.0.tgz. Extracting by manifest.
+168 silly tarball no local data for stylis@https://registry.npmjs.org/stylis/-/stylis-4.2.0.tgz. Extracting by manifest.
+169 silly tarball no local data for @emotion/memoize@https://registry.npmjs.org/@emotion/memoize/-/memoize-0.9.0.tgz. Extracting by manifest.
+170 silly tarball no local data for @emotion/utils@https://registry.npmjs.org/@emotion/utils/-/utils-1.4.0.tgz. Extracting by manifest.
+171 silly tarball no local data for @mui/private-theming@https://registry.npmjs.org/@mui/private-theming/-/private-theming-5.16.6.tgz. Extracting by manifest.
+172 silly tarball no local data for react-transition-group@https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz. Extracting by manifest.
+173 silly tarball no local data for @mui/styled-engine@https://registry.npmjs.org/@mui/styled-engine/-/styled-engine-5.16.6.tgz. Extracting by manifest.
+174 silly tarball no local data for clsx@https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz. Extracting by manifest.
+175 silly tarball no local data for @emotion/cache@https://registry.npmjs.org/@emotion/cache/-/cache-11.13.1.tgz. Extracting by manifest.
+176 silly tarball no local data for csstype@https://registry.npmjs.org/csstype/-/csstype-3.1.3.tgz. Extracting by manifest.
+177 silly tarball no local data for @types/react-transition-group@https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.10.tgz. Extracting by manifest.
+178 silly tarball no local data for @popperjs/core@https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz. Extracting by manifest.
+179 silly tarball no local data for @mui/utils@https://registry.npmjs.org/@mui/utils/-/utils-5.16.6.tgz. Extracting by manifest.
+180 silly tarball no local data for @mui/types@https://registry.npmjs.org/@mui/types/-/types-7.2.15.tgz. Extracting by manifest.
+181 silly tarball no local data for @mui/core-downloads-tracker@https://registry.npmjs.org/@mui/core-downloads-tracker/-/core-downloads-tracker-5.16.6.tgz. Extracting by manifest.
+182 silly tarball no local data for react-dom@https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz. Extracting by manifest.
+183 silly tarball no local data for @mui/icons-material@https://registry.npmjs.org/@mui/icons-material/-/icons-material-5.16.6.tgz. Extracting by manifest.
+184 silly tarball no local data for @mui/system@https://registry.npmjs.org/@mui/system/-/system-5.16.6.tgz. Extracting by manifest.
+185 silly tarball no local data for react-is@https://registry.npmjs.org/react-is/-/react-is-18.3.1.tgz. Extracting by manifest.
+186 silly tarball no local data for @mui/material@https://registry.npmjs.org/@mui/material/-/material-5.16.6.tgz. Extracting by manifest.
+187 silly tarball no local data for react-is@https://registry.npmjs.org/react-is/-/react-is-18.3.1.tgz. Extracting by manifest.
+188 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 403ms
+189 timing auditReport:getReport Completed in 410ms
+190 silly audit report {}
+191 timing auditReport:init Completed in 0ms
+192 timing reify:audit Completed in 412ms
+193 http fetch GET 200 https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.12.tgz 430ms (cache miss)
+194 timing reifyNode:node_modules/@types/prop-types Completed in 472ms
+195 http fetch GET 200 https://registry.npmjs.org/@emotion/utils/-/utils-1.4.0.tgz 435ms (cache miss)
+196 http fetch GET 200 https://registry.npmjs.org/@emotion/weak-memoize/-/weak-memoize-0.4.0.tgz 444ms (cache miss)
+197 http fetch GET 200 https://registry.npmjs.org/@mui/types/-/types-7.2.15.tgz 424ms (cache miss)
+198 http fetch GET 200 https://registry.npmjs.org/react-is/-/react-is-18.3.1.tgz 423ms (cache miss)
+199 http fetch GET 200 https://registry.npmjs.org/@emotion/memoize/-/memoize-0.9.0.tgz 447ms (cache miss)
+200 http fetch GET 200 https://registry.npmjs.org/@mui/core-downloads-tracker/-/core-downloads-tracker-5.16.6.tgz 438ms (cache miss)
+201 timing reifyNode:node_modules/@mui/core-downloads-tracker Completed in 496ms
+202 timing reifyNode:node_modules/@mui/types Completed in 503ms
+203 http fetch GET 200 https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.10.tgz 497ms (cache miss)
+204 http fetch GET 200 https://registry.npmjs.org/react-is/-/react-is-18.3.1.tgz 490ms (cache miss)
+205 timing reifyNode:node_modules/@types/react-transition-group Completed in 556ms
+206 timing reifyNode:node_modules/@mui/utils/node_modules/react-is Completed in 559ms
+207 timing reifyNode:node_modules/@mui/material/node_modules/react-is Completed in 566ms
+208 http fetch GET 200 https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz 526ms (cache miss)
+209 timing reifyNode:node_modules/clsx Completed in 580ms
+210 timing reifyNode:node_modules/@emotion/memoize Completed in 643ms
+211 http fetch GET 200 https://registry.npmjs.org/@emotion/sheet/-/sheet-1.4.0.tgz 604ms (cache miss)
+212 timing reifyNode:node_modules/@emotion/weak-memoize Completed in 653ms
+213 timing reifyNode:node_modules/@emotion/sheet Completed in 658ms
+214 http fetch GET 200 https://registry.npmjs.org/scheduler/-/scheduler-0.23.2.tgz 634ms (cache miss)
+215 http fetch GET 200 https://registry.npmjs.org/stylis/-/stylis-4.2.0.tgz 637ms (cache miss)
+216 timing reifyNode:node_modules/scheduler Completed in 681ms
+217 timing reifyNode:node_modules/stylis Completed in 684ms
+218 timing reifyNode:node_modules/@emotion/utils Completed in 720ms
+219 http fetch GET 200 https://registry.npmjs.org/csstype/-/csstype-3.1.3.tgz 692ms (cache miss)
+220 timing reifyNode:node_modules/csstype Completed in 741ms
+221 http fetch GET 200 https://registry.npmjs.org/@types/react/-/react-18.3.3.tgz 718ms (cache miss)
+222 timing reifyNode:node_modules/@types/react Completed in 756ms
+223 http fetch GET 200 https://registry.npmjs.org/@emotion/cache/-/cache-11.13.1.tgz 894ms (cache miss)
+224 http fetch GET 200 https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz 906ms (cache miss)
+225 http fetch GET 200 https://registry.npmjs.org/@mui/styled-engine/-/styled-engine-5.16.6.tgz 906ms (cache miss)
+226 timing reifyNode:node_modules/@emotion/cache Completed in 954ms
+227 timing reifyNode:node_modules/react-transition-group Completed in 954ms
+228 timing reifyNode:node_modules/@mui/styled-engine Completed in 957ms
+229 http fetch GET 200 https://registry.npmjs.org/@mui/private-theming/-/private-theming-5.16.6.tgz 953ms (cache miss)
+230 timing reifyNode:node_modules/@mui/private-theming Completed in 1004ms
+231 http fetch GET 200 https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz 1171ms (cache miss)
+232 timing reifyNode:node_modules/react-dom Completed in 1234ms
+233 http fetch GET 200 https://registry.npmjs.org/dom-helpers/-/dom-helpers-5.2.1.tgz 1973ms (cache miss)
+234 timing reifyNode:node_modules/dom-helpers Completed in 2013ms
+235 http fetch GET 200 https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz 2051ms (cache miss)
+236 timing reifyNode:node_modules/@popperjs/core Completed in 2106ms
+237 http fetch GET 200 https://registry.npmjs.org/@mui/system/-/system-5.16.6.tgz 2444ms (cache miss)
+238 timing reifyNode:node_modules/@mui/system Completed in 2507ms
+239 http fetch GET 200 https://registry.npmjs.org/@mui/utils/-/utils-5.16.6.tgz 2960ms (cache miss)
+240 timing reifyNode:node_modules/@mui/utils Completed in 3015ms
+241 http fetch GET 200 https://registry.npmjs.org/@mui/material/-/material-5.16.6.tgz 11428ms (cache miss)
+242 timing reifyNode:node_modules/@mui/material Completed in 11494ms
