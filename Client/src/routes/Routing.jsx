@@ -13,7 +13,8 @@ import AllQuestion from '../pages/AllQuestions';
 import SavedQuestions from '../pages/SavedQuestions';
 import PrivateRoute from '../components/PrivateRoutes';
 import AskQuestion from '../pages/askQuestion/askQuestion';
-import EditQuestionPage from '../pages/EditQuestionPage';
+import AnswerUI from '../pages/answer_Questions/AnswerUI';
+import EditQuestionPage from '../pages/EditQuestionPage';import EditQuestionPage from '../pages/EditQuestionPage';
 import HowItWorks from '../pages/HowItWorks';
 import AnswerUI from '../pages/answer_Questions/AnswerUI';
 import Landing from '../pages/landing/Landing';
@@ -51,6 +52,7 @@ const Routing = () => {
 							path="/questions/edit/:questionid"
 							element={<EditQuestionPage />}
 						/>
+						<Route path="/update-profile/" element={<UpdateUser />} />
 					</Route>
 					<Route path="/register" element={<RegisterPage />} />
 					<Route path="/login/" element={<LoginPage />} />
