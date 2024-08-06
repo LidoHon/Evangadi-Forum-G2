@@ -7,7 +7,6 @@ import axiosBase from "../../axiosConfig";
 import { Popconfirm } from "antd";
 import { GrLinkNext } from "react-icons/gr";
 
-
 const AnswerUI = () => {
   const { questionid } = useParams();
   const navigate = useNavigate();
@@ -48,7 +47,6 @@ const AnswerUI = () => {
         const answersRes = await axiosBase.get(
           `/questions/${questionid}/answers`
         );
-        console.log("Fetched answers:", answersRes.data);
         setAnswers(answersRes.data);
 
         if (Number(userId) === Number(questionRes.data.userid)) {
@@ -67,7 +65,6 @@ const AnswerUI = () => {
     if (!newAnswer.trim()) return;
 
     try {
-      console.log("Attempting to post answer...");
       const response = await axiosBase.post(
         `/questions/${questionid}/answers`,
         {
@@ -79,8 +76,6 @@ const AnswerUI = () => {
           withCredentials: true,
         }
       );
-
-      console.log("Answer posted successfully:", response.data);
 
       const newAnswerData = {
         id: response.data.id,
@@ -95,19 +90,20 @@ const AnswerUI = () => {
       console.error("Error posting answer:", error);
     }
   };
-console.log(questionid)
- const handleDeleteAnswer = async (answerId) => {
-   try {
-     await axiosBase.delete(`/questions/${questionId}/answers/${answerId}`, {
-       withCredentials: true,
-     });
-     setAnswers((prevAnswers) =>
-       prevAnswers.filter((answer) => answer.id !== answerId)
-     );
-   } catch (error) {
-     console.error("Error deleting answer:", error);
-   }
- };
+
+  const handleDeleteAnswer = async (answerId) => {
+    try {
+      
+      await axiosBase.delete(`/questions/${questionid}/answers/${answerId}`, {
+        withCredentials: true,
+      });
+      setAnswers((prevAnswers) =>
+        prevAnswers.filter((answer) => answer.id !== answerId)
+      );
+    } catch (error) {
+      console.error("Error deleting answer:", error);
+    }
+  };
 
   const handleEditAnswer = async (answerId, newContent) => {
     try {
@@ -147,14 +143,25 @@ console.log(questionid)
         className="container p-7 bg-orange-100 w-100 mx-auto mb-4 rounded-md"
         id={classes.question_card}
       >
-        <h2 className="text-2xl">Question</h2>
-        <p>{question.title}</p>
-        <p className="text-xs">{question.description}</p>
+        <h2 className="text-3xl font-semibold">Question</h2>
+        <h3>
+          <span className="text-orange-900  text-sm font-bold">Title:</span>
+          {question.title}
+        </h3>
+
+        <h3 className="text-xs">
+          <span className="text-orange-900 text-sm font-bold">
+            Description:
+          </span>
+          {question.description}
+        </h3>
+        <br />
         <p className="text-gray-700">
           <span className="font-bold pr-3">Tag:</span> {question.tag}
         </p>
         <p className="text-sm text-gray-500">
-          <span className="font-semibold">Asked by</span> {question.username} on{" "}
+          <span className="font-semibold text-l">Asked by</span>{" "}
+          {question.username} on{" "}
           {new Date(question.created_at).toLocaleDateString()}
         </p>
         {isOwner && (
@@ -166,15 +173,13 @@ console.log(questionid)
             </Link>
 
             <Popconfirm
-              title="Delete the task"
-              description="Are you sure to delete this task?"
+              title="Delete the question"
+              description="Are you sure to delete this question?"
               okText="Yes"
               cancelText="No"
+              onConfirm={() => handleDeleteQuestion(questionid)}
             >
-              <button
-                className="px-3 py-1 bg-white text-red-800 border-2 border-red-800 rounded-sm mr-5 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1"
-                onClick={() => handleDelete(questionid)}
-              >
+              <button className="px-3 py-1 bg-white text-red-800 border-2 border-red-800 rounded-sm mr-5 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1">
                 Delete
               </button>
             </Popconfirm>
@@ -198,7 +203,6 @@ console.log(questionid)
                   name={question.username}
                   round={true}
                   size="40px"
-                  email="abe@gmail.com"
                   className="mb-2"
                 />
                 <p className="mb-2">{answer.answer}</p>
@@ -213,15 +217,13 @@ console.log(questionid)
                       </button>
                     </Link>
                     <Popconfirm
-                      title="Delete the task"
-                      description="Are you sure to delete this task?"
+                      title="Delete the answer"
+                      description="Are you sure to delete this answer?"
                       okText="Yes"
                       cancelText="No"
+                      onConfirm={() => handleDeleteAnswer(answer.id)}
                     >
-                      <button
-                        onClick={() => handleDeleteAnswer(answer.id)}
-                        className="px-3 py-1 bg-white text-red-800 border-2 border-red-800 rounded-sm mr-5 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1"
-                      >
+                      <button className="px-3 py-1 bg-white text-red-800 border-2 border-red-800 rounded-sm mr-5 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1">
                         Delete
                       </button>
                     </Popconfirm>
@@ -249,7 +251,6 @@ console.log(questionid)
             value={newAnswer}
             onChange={(e) => setNewAnswer(e.target.value)}
           />
-          {console.log(newAnswer)}
           <button
             className="py-4 sm:px-28 mt-3 ms-8 rounded-sm bg-orange-500 text-white  hover:bg-orange-700 transition duration-300 ease-in-out hover:translate-x-1 hover:translate-y-1"
             onClick={handlePostAnswer}
