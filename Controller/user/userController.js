@@ -124,131 +124,118 @@ const checkUser = (req, res) => {
 
 // update a user
 async function updateProfile(req, res) {
-	const userId = req.user.userid;
-	const {
-		username,
-		firstname,
-		lastname,
-		email,
-		currentPassword,
-		newPassword,
-		retypeNewPassword,
-	} = req.body;
+	const userId = req.user.userid; 
+    const { username, firstname, lastname, email, currentPassword, newPassword, retypeNewPassword } = req.body;
+    let passwordchange = false
 
-	try {
-		const updateFields = [];
-		const values = [];
-		let query = 'UPDATE users SET ';
+    try {
+        
+        const updateFields = [];
+        const values = [];
+        let query = "UPDATE users SET ";
 
-		// Check and add username to update query if provided
-		if (username) {
-			const [usernameExists] = await dbConnection.query(
-				'SELECT * FROM users WHERE username = ? AND userid != ?',
-				[username, userId]
-			);
-			if (usernameExists.length > 0) {
-				return res.status(409).json({ msg: 'Username already exists' });
-			}
-			updateFields.push('username = ?');
-			values.push(username);
-		}
+        // Check and add username to update query if provided
+        if (username) {
+            const [usernameExists] = await MyDataBaseConnection.query("SELECT * FROM users WHERE username = ? AND userid != ?", [username, userId]);
+            if (usernameExists.length > 0) {
+                return res.status(409).json({ msg: "Username already exists" });
+            }
+            updateFields.push("username = ?");
+            values.push(username);
+        }
 
-		// Check and add email to update query if provided
-		if (email) {
-			const [emailExists] = await dbConnection.query(
-				'SELECT * FROM users WHERE email = ? AND userid != ?',
-				[email, userId]
-			);
-			if (emailExists.length > 0) {
-				return res.status(409).json({ msg: 'Email already exists' });
-			}
-			updateFields.push('email = ?');
-			values.push(email);
-		}
+        // Check and add email to update query if provided
+        if (email) {
+            const [emailExists] = await MyDataBaseConnection.query("SELECT * FROM users WHERE email = ? AND userid != ?", [email, userId]);
+            if (emailExists.length > 0) {
+                return res.status(409).json({ msg: "Email already exists" });
+            }
+            updateFields.push("email = ?");
+            values.push(email);
+        }
 
-		// Add firstname and lastname to update query if provided
-		if (firstname) {
-			updateFields.push('firstname = ?');
-			values.push(firstname);
-		}
+        // Add firstname and lastname to update query if provided
+        if (firstname) {
+            updateFields.push("firstname = ?");
+            values.push(firstname);
+        }
 
-		if (lastname) {
-			updateFields.push('lastname = ?');
-			values.push(lastname);
-		}
+        if (lastname) {
+            updateFields.push("lastname = ?");
+            values.push(lastname);
+        }
 
-		//Handles the password change only if the user provided a password on any of the 3 password fields
+    
+          // Handle password change logic only if any password field is provided
+        if (currentPassword || newPassword || retypeNewPassword) {
 
-		if (currentPassword || newPassword || retypeNewPassword) {
-			// Ensuring all three password fields are provided
-			if (!currentPassword || !newPassword || !retypeNewPassword) {
-				return res
-					.status(400)
-					.json({
-						msg: 'To change the password, provide current password, new password, and retype new password',
-					});
-			}
+            if (currentPassword && !newPassword && !retypeNewPassword) {
+                return res.status(400).json({ msg: "To change your password, please provide your new password." });
+            }
 
-			// Validate the new password length
-			if (newPassword.length <= 8) {
-				return res
-					.status(400)
-					.json({ msg: 'New password must be longer than 8 characters' });
-			}
+            // Ensure all three password fields are provided
+            if (!currentPassword || !newPassword || !retypeNewPassword) {
+                return res.status(400).json({ msg: "To change the password, provide current password, new password, and retype your new password" });
+            }
+          
 
-			// Ensure the new password and retype new password match
-			if (newPassword !== retypeNewPassword) {
-				return res
-					.status(400)
-					.json({ msg: 'New password and retype new password do not match' });
-			}
+            // Validate the new password length
+            if (newPassword.length <= 8) {
+                return res.status(400).json({ msg: "New password must be longer than 8 characters" });
+            }
 
-			// Verify the current password
-			const [user] = await dbConnection.query(
-				'SELECT password FROM users WHERE userid = ?',
-				[userId]
-			);
+            // Ensure the new password and retype new password match
+            if (newPassword !== retypeNewPassword) {
+                return res.status(400).json({ msg: "New password and retype new password do not match" });
+            }
 
-			if (!user || user.length === 0) {
-				return res.status(404).json({ msg: 'User not found' });
-			}
+            // Verify the current password
+            const [user] = await MyDataBaseConnection.query("SELECT password FROM users WHERE userid = ?", [userId]);
+            
+            if (!user || user.length === 0) {
+                return res.status(404).json({ msg: "User not found" });
+            }
 
-			const storedPasswordHash = user[0].password;
+            const storedPasswordHash = user[0].password;
 
-			// Checking if password exists
-			if (!storedPasswordHash) {
-				return res.status(500).json({ msg: 'Stored password not found' });
-			}
+            // Ensure password exists
+            if (!storedPasswordHash) {
+                return res.status(500).json({ msg: "Stored password not found" });
+            }
 
-			const validPassword = await bcrypt.compare(
-				currentPassword,
-				storedPasswordHash
-			);
-			if (!validPassword) {
-				return res.status(400).json({ msg: 'Current password is incorrect' });
-			}
+            const validPassword = await bcrypt.compare(currentPassword, storedPasswordHash);
+            if (!validPassword) {
+                return res.status(400).json({ msg: "Current password is incorrect" });
+            }
+          
+            // Encrypt the new password
+            const salt = await bcrypt.genSalt(10);
+            const hashPassword = await bcrypt.hash(newPassword, salt);
+            updateFields.push("password = ?");
+            values.push(hashPassword);
+            passwordchange = true;
+        }  
 
-			// Encrypting the new password
-			const salt = await bcrypt.genSalt(10);
-			const hashPassword = await bcrypt.hash(newPassword, salt);
-			updateFields.push('password = ?');
-			values.push(hashPassword);
-		}
+        // Finalize the update query
+        query += updateFields.join(', ') + " WHERE userid = ?";
+        values.push(userId);
 
-		// Finalized the update query
-		query += updateFields.join(', ') + ' WHERE userid = ?';
-		values.push(userId);
+        // Execute the update query
+        await MyDataBaseConnection.query(query, values);
 
-		// Executed the update query
-		await dbConnection.query(query, values);
 
-		return res.status(200).json({ msg: 'Profile updated successfully' });
-	} catch (error) {
-		console.error(error);
-		return res
-			.status(500)
-			.json({ msg: 'An error occurred while updating the profile' });
-	}
+        if(passwordchange){
+            return res.status(200).json({ msg: "Password changed sucesfully" });
+        }else{
+            return res.status(200).json({ msg: "Profile updated successfully" });
+        }
+
+       
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ msg: "Please make sure you have entered all required fields." });
+        
+    }
 }
 
 module.exports = { register, login, logoutUser, checkUser, updateProfile };

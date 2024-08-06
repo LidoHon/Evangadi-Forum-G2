@@ -1,0 +1,256 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.5.2
+2 info using node@v20.13.1
+3 timing npm:load:whichnode Completed in 2ms
+4 timing config:load:defaults Completed in 2ms
+5 timing config:load:file:C:\Program Files\nodejs\node_modules\npm\npmrc Completed in 2ms
+6 timing config:load:builtin Completed in 2ms
+7 timing config:load:cli Completed in 2ms
+8 timing config:load:env Completed in 1ms
+9 timing config:load:file:C:\Evangadi\Phase-4\GroupFIle\Evangadi-Forum-G2\.npmrc Completed in 0ms
+10 timing config:load:project Completed in 2ms
+11 timing config:load:file:C:\Users\henok\.npmrc Completed in 1ms
+12 timing config:load:user Completed in 1ms
+13 timing config:load:file:C:\Evangadi\Phase-4\GroupFIle\Evangadi-Forum-G2\UsershenokAppDataRoamingnpm\etc\npmrc Completed in 1ms
+14 timing config:load:global Completed in 1ms
+15 timing config:load:setEnvs Completed in 1ms
+16 timing config:load Completed in 12ms
+17 timing npm:load:configload Completed in 12ms
+18 timing config:load:flatten Completed in 2ms
+19 timing npm:load:mkdirpcache Completed in 0ms
+20 timing npm:load:mkdirplogs Completed in 1ms
+21 verbose title npm install @mui/icons-material
+22 verbose argv "install" "@mui/icons-material"
+23 timing npm:load:setTitle Completed in 1ms
+24 timing npm:load:display Completed in 1ms
+25 verbose logfile logs-max:10 dir:C:\Evangadi\Phase-4\GroupFIle\Evangadi-Forum-G2\UsershenokAppDataLocalnpm-cache\_logs\2024-08-05T21_26_51_972Z-
+26 verbose logfile C:\Evangadi\Phase-4\GroupFIle\Evangadi-Forum-G2\UsershenokAppDataLocalnpm-cache\_logs\2024-08-05T21_26_51_972Z-debug-0.log
+27 timing npm:load:logFile Completed in 38ms
+28 timing npm:load:timers Completed in 1ms
+29 timing npm:load:configScope Completed in 0ms
+30 timing npm:load Completed in 88ms
+31 timing arborist:ctor Completed in 1ms
+32 silly logfile done cleaning log files
+33 timing idealTree:init Completed in 99ms
+34 timing idealTree:userRequests Completed in 2ms
+35 silly idealTree buildDeps
+36 silly fetch manifest @mui/icons-material@*
+37 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+38 http fetch GET 200 https://registry.npmjs.org/@mui%2ficons-material 178ms (cache hit)
+39 silly fetch manifest @mui/material@^5.0.0
+40 http fetch GET 200 https://registry.npmjs.org/@mui%2fmaterial 62ms (cache hit)
+41 silly fetch manifest @emotion/react@^11.5.0
+42 http fetch GET 200 https://registry.npmjs.org/@emotion%2freact 14ms (cache hit)
+43 silly fetch manifest react@>=16.8.0
+44 http fetch GET 200 https://registry.npmjs.org/react 224ms (cache revalidated)
+45 silly fetch manifest @emotion/styled@^11.3.0
+46 http fetch GET 200 https://registry.npmjs.org/@emotion%2fstyled 84ms (cache hit)
+47 silly fetch manifest @types/react@^17.0.0 || ^18.0.0
+48 http fetch GET 200 https://registry.npmjs.org/@types%2freact 25ms (cache hit)
+49 silly fetch manifest react-dom@^17.0.0 || ^18.0.0
+50 http fetch GET 200 https://registry.npmjs.org/react-dom 38ms (cache hit)
+51 silly placeDep ROOT @mui/icons-material@5.16.6 OK for: server@1.0.0 want: *
+52 silly placeDep ROOT @mui/material@5.16.6 OK for: @mui/icons-material@5.16.6 want: ^5.0.0
+53 silly placeDep ROOT react-dom@18.3.1 OK for: @mui/material@5.16.6 want: ^17.0.0 || ^18.0.0
+54 silly fetch manifest clsx@^2.1.0
+55 silly fetch manifest csstype@^3.1.3
+56 silly fetch manifest react-is@^18.3.1
+57 silly fetch manifest @mui/types@^7.2.15
+58 silly fetch manifest @mui/utils@^5.16.6
+59 silly fetch manifest @mui/system@^5.16.6
+60 silly fetch manifest @popperjs/core@^2.11.8
+61 silly fetch manifest react-transition-group@^4.4.5
+62 silly fetch manifest @mui/core-downloads-tracker@^5.16.6
+63 silly fetch manifest @types/react-transition-group@^4.4.10
+64 silly fetch manifest scheduler@^0.23.2
+65 http fetch GET 200 https://registry.npmjs.org/clsx 91ms (cache hit)
+66 http fetch GET 200 https://registry.npmjs.org/@mui%2ftypes 93ms (cache hit)
+67 http fetch GET 200 https://registry.npmjs.org/csstype 102ms (cache hit)
+68 http fetch GET 200 https://registry.npmjs.org/@mui%2fcore-downloads-tracker 105ms (cache hit)
+69 http fetch GET 200 https://registry.npmjs.org/react-transition-group 112ms (cache hit)
+70 http fetch GET 200 https://registry.npmjs.org/@mui%2futils 118ms (cache hit)
+71 http fetch GET 200 https://registry.npmjs.org/@types%2freact-transition-group 119ms (cache hit)
+72 http fetch GET 200 https://registry.npmjs.org/@popperjs%2fcore 126ms (cache hit)
+73 http fetch GET 200 https://registry.npmjs.org/@mui%2fsystem 138ms (cache hit)
+74 http fetch GET 200 https://registry.npmjs.org/scheduler 152ms (cache hit)
+75 http fetch GET 200 https://registry.npmjs.org/react-is 216ms (cache revalidated)
+76 timing idealTree:#root Completed in 1072ms
+77 timing idealTree:node_modules/@mui/icons-material Completed in 0ms
+78 silly fetch manifest react@^17.0.0 || ^18.0.0
+79 silly placeDep ROOT @mui/core-downloads-tracker@5.16.6 OK for: @mui/material@5.16.6 want: ^5.16.6
+80 silly placeDep ROOT @mui/system@5.16.6 OK for: @mui/material@5.16.6 want: ^5.16.6
+81 silly placeDep ROOT @mui/types@7.2.15 OK for: @mui/material@5.16.6 want: ^7.2.15
+82 silly placeDep ROOT @mui/utils@5.16.6 OK for: @mui/material@5.16.6 want: ^5.16.6
+83 silly placeDep ROOT @popperjs/core@2.11.8 OK for: @mui/material@5.16.6 want: ^2.11.8
+84 silly placeDep ROOT @types/react-transition-group@4.4.10 OK for: @mui/material@5.16.6 want: ^4.4.10
+85 silly placeDep ROOT clsx@2.1.1 OK for: @mui/material@5.16.6 want: ^2.1.0
+86 silly placeDep ROOT csstype@3.1.3 OK for: @mui/material@5.16.6 want: ^3.1.3
+87 silly placeDep node_modules/@mui/material react-is@18.3.1 OK for: @mui/material@5.16.6 want: ^18.3.1
+88 silly placeDep ROOT react-transition-group@4.4.5 OK for: @mui/material@5.16.6 want: ^4.4.5
+89 silly fetch manifest @mui/styled-engine@^5.16.6
+90 silly fetch manifest @mui/private-theming@^5.16.6
+91 silly fetch manifest clsx@^2.1.1
+92 silly fetch manifest @types/prop-types@^15.7.12
+93 silly fetch manifest @types/react@*
+94 silly fetch manifest dom-helpers@^5.0.1
+95 http fetch GET 200 https://registry.npmjs.org/dom-helpers 48ms (cache hit)
+96 http fetch GET 200 https://registry.npmjs.org/@mui%2fprivate-theming 55ms (cache hit)
+97 http fetch GET 200 https://registry.npmjs.org/@mui%2fstyled-engine 60ms (cache hit)
+98 http fetch GET 200 https://registry.npmjs.org/@types%2fprop-types 63ms (cache hit)
+99 timing idealTree:node_modules/@mui/material Completed in 111ms
+100 timing idealTree:node_modules/@mui/core-downloads-tracker Completed in 0ms
+101 silly placeDep ROOT @mui/private-theming@5.16.6 OK for: @mui/system@5.16.6 want: ^5.16.6
+102 silly placeDep ROOT @mui/styled-engine@5.16.6 OK for: @mui/system@5.16.6 want: ^5.16.6
+103 silly fetch manifest @emotion/cache@^11.11.0
+104 http fetch GET 200 https://registry.npmjs.org/@emotion%2fcache 13ms (cache hit)
+105 timing idealTree:node_modules/@mui/system Completed in 30ms
+106 timing idealTree:node_modules/@mui/private-theming Completed in 0ms
+107 silly placeDep ROOT @emotion/cache@11.13.1 OK for: @mui/styled-engine@5.16.6 want: ^11.11.0
+108 silly fetch manifest @emotion/memoize@^0.9.0
+109 silly fetch manifest @emotion/sheet@^1.4.0
+110 silly fetch manifest @emotion/utils@^1.4.0
+111 silly fetch manifest @emotion/weak-memoize@^0.4.0
+112 silly fetch manifest stylis@4.2.0
+113 http fetch GET 200 https://registry.npmjs.org/@emotion%2futils 26ms (cache hit)
+114 http fetch GET 200 https://registry.npmjs.org/@emotion%2fweak-memoize 27ms (cache hit)
+115 http fetch GET 200 https://registry.npmjs.org/@emotion%2fsheet 30ms (cache hit)
+116 http fetch GET 200 https://registry.npmjs.org/@emotion%2fmemoize 41ms (cache hit)
+117 http fetch GET 200 https://registry.npmjs.org/stylis 33ms (cache hit)
+118 timing idealTree:node_modules/@mui/styled-engine Completed in 55ms
+119 silly placeDep ROOT @emotion/memoize@0.9.0 OK for: @emotion/cache@11.13.1 want: ^0.9.0
+120 silly placeDep ROOT @emotion/sheet@1.4.0 OK for: @emotion/cache@11.13.1 want: ^1.4.0
+121 silly placeDep ROOT @emotion/utils@1.4.0 OK for: @emotion/cache@11.13.1 want: ^1.4.0
+122 silly placeDep ROOT @emotion/weak-memoize@0.4.0 OK for: @emotion/cache@11.13.1 want: ^0.4.0
+123 silly placeDep ROOT stylis@4.2.0 OK for: @emotion/cache@11.13.1 want: 4.2.0
+124 timing idealTree:node_modules/@emotion/cache Completed in 10ms
+125 timing idealTree:node_modules/@emotion/memoize Completed in 0ms
+126 timing idealTree:node_modules/@emotion/sheet Completed in 1ms
+127 timing idealTree:node_modules/@emotion/utils Completed in 0ms
+128 timing idealTree:node_modules/@emotion/weak-memoize Completed in 0ms
+129 timing idealTree:node_modules/@mui/types Completed in 0ms
+130 silly placeDep ROOT @types/prop-types@15.7.12 OK for: @mui/utils@5.16.6 want: ^15.7.12
+131 silly placeDep node_modules/@mui/utils react-is@18.3.1 OK for: @mui/utils@5.16.6 want: ^18.3.1
+132 timing idealTree:node_modules/@mui/utils Completed in 3ms
+133 timing idealTree:node_modules/@popperjs/core Completed in 0ms
+134 timing idealTree:node_modules/@types/prop-types Completed in 0ms
+135 silly placeDep ROOT @types/react@18.3.3 OK for: @types/react-transition-group@4.4.10 want: *
+136 timing idealTree:node_modules/@types/react-transition-group Completed in 3ms
+137 timing idealTree:node_modules/@types/react Completed in 0ms
+138 timing idealTree:node_modules/clsx Completed in 0ms
+139 timing idealTree:node_modules/csstype Completed in 0ms
+140 silly placeDep ROOT scheduler@0.23.2 OK for: react-dom@18.3.1 want: ^0.23.2
+141 timing idealTree:node_modules/react-dom Completed in 2ms
+142 silly placeDep ROOT dom-helpers@5.2.1 OK for: react-transition-group@4.4.5 want: ^5.0.1
+143 timing idealTree:node_modules/react-transition-group Completed in 2ms
+144 timing idealTree:node_modules/dom-helpers Completed in 0ms
+145 timing idealTree:node_modules/scheduler Completed in 0ms
+146 timing idealTree:node_modules/stylis Completed in 0ms
+147 timing idealTree:node_modules/@mui/material/node_modules/react-is Completed in 0ms
+148 timing idealTree:node_modules/@mui/utils/node_modules/react-is Completed in 0ms
+149 timing idealTree:buildDeps Completed in 1294ms
+150 timing idealTree:fixDepFlags Completed in 4ms
+151 timing idealTree Completed in 1404ms
+152 timing reify:loadTrees Completed in 1405ms
+153 timing reify:diffTrees Completed in 12ms
+154 silly reify mark retired [
+154 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\fsevents'
+154 silly reify ]
+155 silly reify mark retired [
+155 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\icons-material'
+155 silly reify ]
+156 silly reify mark retired [
+156 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\clsx'
+156 silly reify ]
+157 silly reify mark retired [
+157 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\csstype'
+157 silly reify ]
+158 silly reify mark retired [
+158 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\dom-helpers'
+158 silly reify ]
+159 silly reify mark retired [
+159 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\react-dom'
+159 silly reify ]
+160 silly reify mark retired [
+160 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\react-transition-group'
+160 silly reify ]
+161 silly reify mark retired [
+161 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\scheduler'
+161 silly reify ]
+162 silly reify mark retired [
+162 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\stylis'
+162 silly reify ]
+163 silly reify mark retired [
+163 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\cache'
+163 silly reify ]
+164 silly reify mark retired [
+164 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\weak-memoize'
+164 silly reify ]
+165 silly reify mark retired [
+165 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\memoize'
+165 silly reify ]
+166 silly reify mark retired [
+166 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\sheet'
+166 silly reify ]
+167 silly reify mark retired [
+167 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\utils'
+167 silly reify ]
+168 silly reify mark retired [
+168 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\core-downloads-tracker'
+168 silly reify ]
+169 silly reify mark retired [
+169 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\private-theming'
+169 silly reify ]
+170 silly reify mark retired [
+170 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\material'
+170 silly reify ]
+171 silly reify mark retired [
+171 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\styled-engine'
+171 silly reify ]
+172 silly reify mark retired [
+172 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\system'
+172 silly reify ]
+173 silly reify mark retired [
+173 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\utils'
+173 silly reify ]
+174 silly reify mark retired [
+174 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\types'
+174 silly reify ]
+175 silly reify mark retired [
+175 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@popperjs\\core'
+175 silly reify ]
+176 silly reify mark retired [
+176 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@types\\prop-types'
+176 silly reify ]
+177 silly reify mark retired [
+177 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@types\\react'
+177 silly reify ]
+178 silly reify mark retired [
+178 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@types\\react-transition-group'
+178 silly reify ]
+179 silly reify moves {
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\fsevents': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\.fsevents-SdDOcHrp',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\icons-material': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\.icons-material-Q1gyrA3J',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\clsx': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\.clsx-ZaI3RhRr',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\csstype': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\.csstype-EPbBhbQS',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\dom-helpers': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\.dom-helpers-TLbrBYhe',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\react-dom': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\.react-dom-9hRdeQzT',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\react-transition-group': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\.react-transition-group-gzsrY9E4',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\scheduler': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\.scheduler-CXtxNiv5',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\stylis': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\.stylis-wyTa9Ipa',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\cache': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\.cache-oxineKRu',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\weak-memoize': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\.weak-memoize-hf5DonDG',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\memoize': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\.memoize-gLY0I8wQ',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\sheet': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\.sheet-abmjcEXF',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\utils': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@emotion\\.utils-heei0DP2',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\core-downloads-tracker': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\.core-downloads-tracker-cze0KuqF',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\private-theming': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\.private-theming-nufX6heb',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\material': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\.material-KO3Mj18k',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\styled-engine': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\.styled-engine-PVcI7wGO',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\system': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\.system-KcSF3Yvw',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\utils': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\.utils-Se5UpAju',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\types': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@mui\\.types-zQ6WLKTk',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@popperjs\\core': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@popperjs\\.core-T8uyxmEt',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@types\\prop-types': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@types\\.prop-types-QpXgT2cU',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@types\\react': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@types\\.react-bDF3GWaL',
+179 silly reify   'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@types\\react-transition-group': 'C:\\Evangadi\\Phase-4\\GroupFIle\\Evangadi-Forum-G2\\node_modules\\@types\\.react-transition-group-35awCutf'
+179 silly reify }
