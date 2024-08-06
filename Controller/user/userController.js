@@ -6,6 +6,7 @@ const generateToken = require('../../utils/generateToken');
 
 // Register a user
 const register = async (req, res) => {
+	console.log("registrer");
 	const { username, firstname, lastname, email, password } = req.body;
 	if (!email || !password || !firstname || !lastname || !username) {
 		return res

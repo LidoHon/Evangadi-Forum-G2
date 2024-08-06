@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState }, { useState } from "react";
 import logo from "/images/evangadi-logo-black.png";
 import { Menu, X } from "lucide-react";
 import NavLinks from "./NavLink";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";import logo from '/images/evangadi-logo-black.png';
+import { Menu, X } from 'lucide-react';
+import NavLinks from './NavLink';
+import { Link } from 'react-router-dom';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 

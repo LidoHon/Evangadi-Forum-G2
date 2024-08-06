@@ -48,5 +48,56 @@
 	margin-right: 10px;
 }
 form {
+    padding-left: 25px;
+}.container {
+	width: 50%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fafafa;
+}
+.container h1 {
+	color: #c53030;
+	text-align: center;
+}
+.general_desc {
+	color: #0c0c0c;
+	font-family: Arial, sans-serif;
+}
+
+.title {
+	display: inline-block;
+	position: relative;
+	font-size: 25px;
+	margin-left: 50px;
+	padding-top: 10px;
+	font-weight: 300;
+}
+
+.title::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 50%;
+	height: 2px;
+	background-color: rgb(197, 48, 48);
+}
+.Summarize {
+	margin-left: 10%;
+	list-style: none;
+	font-size: 20px;
+	padding-bottom: 20px;
+	color: #a5918e;
+	font-family: Roboto, Verdana, Geneva, Tahoma, 'sans-serif';
+}
+
+.Summarize li {
+	margin-bottom: 15px;
+}
+
+.Summarize li svg {
+	margin-right: 10px;
+}
+form {
 	padding-left: 25px;
 }

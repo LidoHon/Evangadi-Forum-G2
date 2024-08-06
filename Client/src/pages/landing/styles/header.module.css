@@ -1,0 +1,17 @@
+/* .background_image_class {
+	background-image: url('./images/bg-svg-f.svg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+    height: 100vh;
+} */
+.divider{
+    margin: 0px 18px;
+    background: rgba(255, 91, 15, 0.3);
+    width: 3px;
+    height: 40px;
+}
+li:hover{
+    transition: all 0.2s ease-in-out;
+    font-size: 17px;
+}

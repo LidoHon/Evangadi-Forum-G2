@@ -64,7 +64,9 @@ app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: true }));
 // json middleware to extract json data
-app.use(express.json());
+app.use(express.json());   
+
+  
 
 // cookie parser middle ware
 app.use(cookieParser());
@@ -84,10 +86,10 @@ app.use('/api/questions', authMiddleware, questionsRoutes);
 app.use('/api/questions/:questionId/answers', answersRoutes);
 
 // const start = async () => {
-// 	try {
-// 		const result = await dbConnection.execute("select 'test' ");
-// 		app.listen(PORT);
-// 		// console.log(result);
+	// 	try {
+		// 		const result = await dbConnection.execute("select 'test' ");
+		// 		app.listen(PORT);
+		// 		// console.log(result);
 // 		console.log('database connected');
 // 		console.log(`server running on port ${PORT}`);
 // 	} catch (error) {
@@ -102,8 +104,8 @@ const start = async () => {
 		const result = await dbConnection.execute("select 'test' ");
 		https.createServer(options, app).listen(5000, () => {
 			console.log('database connected');
-			console.log(`server running on port ${5000}`);
-			// console.log(result)
+			console.log(`server running on port ${PORT}`);
+			console.log(result)
 		});
 	} catch (error) {
 		console.log(error.message);

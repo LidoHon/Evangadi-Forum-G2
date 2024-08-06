@@ -16,3 +16,52 @@
 #input{
     width: 80%;
 }
+
+/* Add this CSS to your styles/answerUI.module.css or a global CSS file */
+
+.link_container {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #f3f4f6;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.link_container:hover {
+  background-color: #ff5722;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+.link_container .arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.link_container:hover .arrow {
+  transform: translateX(5px);
+}
+
+.glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.link_container:hover .glow {
+  opacity: 1;
+  transform: scale(1);
+}
