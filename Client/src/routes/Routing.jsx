@@ -6,10 +6,8 @@ import {
 	RouterProvider,
 } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
-import Home from '../pages/Home';
 import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
-import UpdateUser from '../pages/UpdateUser';
 import NotFound from '../pages/NotFound';
 import AllQuestion from '../pages/AllQuestions';
 import SavedQuestions from '../pages/SavedQuestions';
@@ -18,13 +16,14 @@ import AskQuestion from '../pages/askQuestion/askQuestion';
 import EditQuestionPage from '../pages/EditQuestionPage';
 import HowItWorks from '../pages/HowItWorks';
 import AnswerUI from '../pages/answer_Questions/AnswerUI';
+import Landing from '../pages/landing/Landing';
 const Routing = () => {
 	const [savedQuestions, setSavedQuestions] = useState([]);
 
 	const routes = createBrowserRouter(
 		createRoutesFromElements(
 			<Route>
-				<Route index element={<Home />} />
+				<Route index element={<Landing />} />
 
 				<Route path="/" element={<MainLayout />}>
 					<Route element={<PrivateRoute />}>
