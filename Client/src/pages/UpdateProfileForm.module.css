@@ -1,8 +1,7 @@
 
 .container {
     display: block;
-    justify-content: space-between;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     padding: 20px;
     background-color: white;
@@ -11,29 +10,17 @@
     background-image: url("./Image//624eeffb-a303-4dfb-bda0-3db589a584c1.svg");
     background-size: cover;
     background-position: center;
-    /* border: solid green; */
-    margin-top: 4%
+    margin-top: 4%;
 }
 
- .passwordChange {
-    width: 45.5%;
-    margin-left: 28%;
-    margin-top: 5%;
-    /* border: solid yellow */
+.passwordChange,
+.profileUpdate {
+    width: 100%;
+    margin: 5% 0;
 }
 
-.profileUpdate{
-    width: 45%;
-    margin-left: 28%;
-}
-
-
-
-.profileText{
-    text-align: center;
-}
-
-.passwrodText{
+.profileText,
+.passwrodText {
     text-align: center;
 }
 
@@ -41,21 +28,18 @@ h2 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
-    /* border: solid pink */
 }
 
 .form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* border: solid rgb(54, 0, 90) */
-  
 }
 
 .formGroup {
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    /* border: solid rgb(107, 255, 134) */
 }
 
 .input {
@@ -64,7 +48,6 @@ h2 {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
-  
 }
 
 .button {
@@ -81,25 +64,45 @@ h2 {
     background-color: #0056b3;
 }
 
-.refmessage{
+.refmessage {
     color: red;
     margin-top: 4%;
 }
 
-.reftext{
+.reftext {
     text-align: center;
     font-size: 22px;
     display: none;
     color: green;
 }
 
-.input.Error::placeholder{
-    color: red
+.input.Error::placeholder {
+    color: red;
 }
 
-.PasswordHeader{
+.PasswordHeader {
     text-align: center;
     font-size: 22px;
     display: none;
     color: red;
+}
+
+/* Media queries to make it responsive */
+@media (min-width: 768px) {
+    .formGroup {
+        flex-direction: row;
+    }
+
+    .passwordChange,
+    .profileUpdate {
+        width: 45%;
+        margin-left: 28%;
+        margin-top: 5%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 70%;
+    }
 }
