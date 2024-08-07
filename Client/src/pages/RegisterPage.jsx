@@ -1,11 +1,13 @@
 import React from 'react';
 import Register from '../components/Register';
-import Paragraph from '../components/Paragraph';
+// import Paragraph from '../components/Paragraph';
+import AboutPage from '../components/AboutPage/AboutPage';
 const RegisterPage = () => {
 	return (
 		<div className="flex flex-row">
 			<Register />
-			<Paragraph />
+			{/* <Paragraph /> */}
+			<AboutPage />
 		</div>
 	);
 };

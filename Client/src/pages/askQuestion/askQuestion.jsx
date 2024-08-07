@@ -46,7 +46,7 @@ const AskQuestionPage = () => {
 
 	return (
 		<div className={styles.container}>
-			<h1>Ask a Question</h1>
+			<h1 className="text-4xl">Ask a Question</h1>
 
 			{error && <p className="text-red-500 mb-4">{error}</p>}
 			<div className={styles.general_desc}>

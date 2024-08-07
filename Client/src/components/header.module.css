@@ -1,0 +1,20 @@
+
+.divider{
+    margin: 0px 18px;
+    background: rgba(255, 91, 15, 0.3);
+    width: 3px;
+    height: 40px;
+}
+li:hover{
+    transition: all 0.2s ease-in-out;
+    font-size: 17px;
+}
+#background_image_class {
+	background-image: url('../../../assets/bg-svg-f.svg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+    /* position: fixed; */
+    height: 100vh;
+    margin-top: -3%;
+}
