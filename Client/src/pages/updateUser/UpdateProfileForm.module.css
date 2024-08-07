@@ -1,0 +1,107 @@
+.container {
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	background-image: url('./Image//624eeffb-a303-4dfb-bda0-3db589a584c1.svg');
+	background-size: cover;
+	background-position: center;
+	margin-top: 4%;
+}
+
+.passwordChange,
+.profileUpdate {
+	width: 100%;
+	margin: 5% 0;
+}
+
+.profileText,
+.passwrodText {
+	text-align: center;
+}
+
+h2 {
+	margin-bottom: 20px;
+	font-size: 24px;
+	color: #333;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.formGroup {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.input {
+	flex: 1;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.button {
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #007bff;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #0056b3;
+}
+
+.refmessage {
+	color: red;
+	margin-top: 4%;
+}
+
+.reftext {
+	text-align: center;
+	font-size: 22px;
+	display: none;
+	color: green;
+}
+
+.input.Error::placeholder {
+	color: red;
+}
+
+.PasswordHeader {
+	text-align: center;
+	font-size: 22px;
+	display: none;
+	color: red;
+}
+
+/* Media queries to make it responsive */
+@media (min-width: 768px) {
+	.formGroup {
+		flex-direction: row;
+	}
+
+	.passwordChange,
+	.profileUpdate {
+		width: 45%;
+		margin-left: 28%;
+		margin-top: 5%;
+	}
+}
+
+@media (min-width: 1024px) {
+	.container {
+		width: 70%;
+	}
+}
