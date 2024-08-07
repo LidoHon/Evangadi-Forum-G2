@@ -1,7 +1,7 @@
-import React from "react";
-import question from "../../../assets/Untitled_design__2_-removebg-preview.png"
-import think from "../../../assets/Untitled_design__4_-removebg-preview.png"
-import { Link } from "react-router-dom";
+import React from 'react';
+import question from '../../../assets/Untitled_design__2_-removebg-preview.png';
+import think from '../../../assets/Untitled_design__4_-removebg-preview.png';
+import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <div className="mt-12">

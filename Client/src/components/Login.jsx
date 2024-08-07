@@ -37,7 +37,7 @@ const Login = () => {
 			});
 			setGeneralError(''); // Clear any previous general errors
 			localStorage.setItem('token', data.token);
-			navigate('/');
+			navigate('/questions');
 			// console.log(data);
 		} catch (error) {
 			setGeneralError(
@@ -107,14 +107,14 @@ const Login = () => {
 						<p className="text-red-500 text-sm mt-1">{errors.password}</p>
 					)}
 				</div>
-				
+
 				<button
 					type="submit"
 					className="w-full p-2 bg-orange-800 text-white rounded-md hover:bg-orange-700"
 				>
 					Login
 				</button>
-				<p className='text-center'>or</p>
+				<p className="text-center">or</p>
 				<Link to="/register">
 					<p className="text-orange-800  mt-6 no-underline text-center hover:text-orange-700">
 						Create an Account
