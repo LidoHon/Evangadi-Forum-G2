@@ -14,7 +14,7 @@ const Header = () => {
 
 	return (
 		<header
-			className={`${classes.header} py-1 my-5 mx-0 md:mx-40 lg:mx-60 md:bg-orange-50 md:rounded md:shadow-sm`}
+			className={`${classes.header} py-1 my-5 mx-0 md:mx-40 lg:mx-60 md:bg-orange-50 md:rounded md:shadow-sm `}
 		>
 			<div className="relative container mx-auto p-6 flex flex-wrap">
 				<div className="flex items-center justify-between w-full">
