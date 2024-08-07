@@ -3,6 +3,8 @@ import styles from './UpdateProfileForm.module.css';
 import axios from '../../axiosConfig';
 import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
+// import { Eye, FaEyeSlash } from 'lucide-react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function UpdateUser() {
 	const [username, SetUsername] = useState('');
@@ -13,15 +15,19 @@ function UpdateUser() {
 	const [newPassword, SetNewPassword] = useState('');
 	const [retypeNewPassword, SetRetypeNewPassword] = useState('');
 	const [message, Setmessage] = useState('');
+	const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+	const [showNewPassword, setShowNewPassword] = useState(false);
+	const [showRetypeNewPassword, setShowRetypeNewPassword] = useState(false);
 
-	const changeColorRef = useRef(null);
-	const headerReftext = useRef(null);
-	const ErrorEmailplaceholderRef = useRef(null);
-	const ErrorFirstNameplaceholderRef = useRef(null);
-	const ErrorLastNameplaceholderRef = useRef(null);
-	const ErrorUsernameplaceholderRef = useRef(null);
-	const ErrorNewPasswordplaceholderRef = useRef(null);
-	const ErrorHeaderPasswordText = useRef();
+	// const changeColorRef = useRef(null);
+	// const headerReftext = useRef(null);
+	// const ErrorEmailplaceholderRef = useRef(null);
+	// const ErrorFirstNameplaceholderRef = useRef(null);
+	// const ErrorLastNameplaceholderRef = useRef(null);
+	// const ErrorUsernameplaceholderRef = useRef(null);
+	// const ErrorNewPasswordplaceholderRef = useRef(null);
+	// const ErrorHeaderPasswordText = useRef();
+
 	const FormSubmitHandler = async (e) => {
 		e.preventDefault();
 
@@ -148,9 +154,9 @@ function UpdateUser() {
 		<div className={styles.container}>
 			<div className={styles.profileUpdate}>
 				<h2 className={styles.profileText}>Update Profile</h2>
-				<h5 className={styles.reftext} ref={headerReftext}>
+				{/* <h5 className={styles.reftext} ref={headerReftext}>
 					Profile Sucesfully updated
-				</h5>
+				</h5> */}
 				<form className={styles.form} onSubmit={FormSubmitHandler}>
 					<div className={styles.formGroup}>
 						<input
@@ -159,7 +165,7 @@ function UpdateUser() {
 							value={email}
 							onChange={(e) => SetEmail(e.target.value)}
 							className={styles.input}
-							ref={ErrorEmailplaceholderRef}
+							// ref={ErrorEmailplaceholderRef}
 						/>
 					</div>
 					<div className={styles.formGroup}>
@@ -169,7 +175,7 @@ function UpdateUser() {
 							value={firstname}
 							onChange={(e) => SetFirstname(e.target.value)}
 							className={styles.input}
-							ref={ErrorFirstNameplaceholderRef}
+							// ref={ErrorFirstNameplaceholderRef}
 						/>
 						<input
 							type="text"
@@ -177,7 +183,7 @@ function UpdateUser() {
 							value={lastname}
 							onChange={(e) => SetLastname(e.target.value)}
 							className={styles.input}
-							ref={ErrorLastNameplaceholderRef}
+							// ref={ErrorLastNameplaceholderRef}
 						/>
 					</div>
 					<div className={styles.formGroup}>
@@ -187,10 +193,14 @@ function UpdateUser() {
 							value={username}
 							onChange={(e) => SetUsername(e.target.value)}
 							className={styles.input}
-							ref={ErrorUsernameplaceholderRef}
+							// ref={ErrorUsernameplaceholderRef}
 						/>
 					</div>
-					<button type="submit" className={styles.button} ref={changeColorRef}>
+					<button
+						type="submit"
+						className={styles.button}
+						// ref={changeColorRef}
+					>
 						Update
 					</button>
 				</form>
@@ -199,45 +209,69 @@ function UpdateUser() {
 				<h2 className={styles.passwrodText}>
 					Use this field if you would like to change your password
 				</h2>
-				<h5 className={styles.PasswordHeader} ref={ErrorHeaderPasswordText}>
-					To change your password, please provide your current password, new
-					password, and retype your new password.
-				</h5>
 				<form className={styles.form} onSubmit={FormSubmitHandler}>
-					<div className={styles.formGroup}>
+					<div className="relative">
 						<input
-							type="password"
+							type={showCurrentPassword ? 'text' : 'password'}
 							placeholder="Current Password"
 							value={currentPassword}
 							onChange={(e) => SetCurrentPassword(e.target.value)}
-							className={styles.input}
+							className="w-full px-4 py-2 pr-12 border rounded-md"
 						/>
+						<button
+							type="button"
+							className="absolute inset-y-0 right-0 flex items-center px-3"
+							onClick={() => setShowCurrentPassword(!showCurrentPassword)}
+						>
+							{showCurrentPassword ? (
+								<FaEyeSlash size={20} />
+							) : (
+								<FaEye size={20} />
+							)}
+						</button>
 					</div>
-					<div className={styles.formGroup}>
+					<div className="relative mt-4">
 						<input
-							type="password"
+							type={showNewPassword ? 'text' : 'password'}
 							placeholder="New Password"
 							value={newPassword}
 							onChange={(e) => SetNewPassword(e.target.value)}
-							className={styles.input}
-							ref={ErrorNewPasswordplaceholderRef}
+							className="w-full px-4 py-2 pr-12 border rounded-md"
 						/>
+						<button
+							type="button"
+							className="absolute inset-y-0 right-0 flex items-center px-3"
+							onClick={() => setShowNewPassword(!showNewPassword)}
+						>
+							{showNewPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+						</button>
 					</div>
-					<div className={styles.formGroup}>
+					<div className="relative mt-4">
 						<input
-							type="password"
+							type={showRetypeNewPassword ? 'text' : 'password'}
 							placeholder="Retype New Password"
 							value={retypeNewPassword}
 							onChange={(e) => SetRetypeNewPassword(e.target.value)}
-							className={styles.input}
-							ref={ErrorNewPasswordplaceholderRef}
+							className="w-full px-4 py-2 pr-12 border rounded-md"
 						/>
+						<button
+							type="button"
+							className="absolute inset-y-0 right-0 flex items-center px-3"
+							onClick={() => setShowRetypeNewPassword(!showRetypeNewPassword)}
+						>
+							{showRetypeNewPassword ? (
+								<FaEyeSlash size={20} />
+							) : (
+								<FaEye size={20} />
+							)}
+						</button>
 					</div>
 					<button type="submit" className={styles.button}>
 						Change Password
 					</button>
 				</form>
 			</div>
+			<ToastContainer />
 		</div>
 	);
 }

@@ -133,7 +133,10 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 					</div>
 				</div>
 			</>
-			<FaHandPointRight className=" ml-10 mb-4 text-red-800" size={60} />
+			<FaHandPointRight
+				className=" ml-10 mb-4 rotate-90 lg:rotate-0 text-red-800 "
+				size={60}
+			/>
 
 			{loading && <Spinner />}
 			{error && (
@@ -142,7 +145,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 				</p>
 			)}
 			{filteredQuestions.length > 0 ? (
-				<ul className=" space-y-4 lg:w-2/6 mx-auto group">
+				<ul className=" space-y-4 w-5/6 lg:w-2/6  mx-auto group">
 					{filteredQuestions.map((question) => {
 						// checking if the question is saved
 						const isSaved = savedQuestions.some(

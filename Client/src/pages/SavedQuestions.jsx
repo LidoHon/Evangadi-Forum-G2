@@ -50,10 +50,13 @@ const SavedQuestions = ({ savedQuestions, setSavedQuestions }) => {
 					All questions
 				</button>
 			</div>
-			<FaHandPointRight size={60} className="text-red-800 mt-10 ms-5" />
+			<FaHandPointRight
+				size={60}
+				className="rotate-90 lg:rotate-0 text-red-800 mt-10 ms-5"
+			/>
 
 			{savedQuestions.length > 0 ? (
-				<ul className=" space-y-4 lg:w-2/6 mx-auto group">
+				<ul className=" space-y-4 w-5/6 lg:w-2/6 pt-4 lg:pt-0  mx-auto group">
 					{savedQuestions.map((question) => (
 						<li
 							key={question.questionid}
