@@ -35,19 +35,30 @@ const AnswerUI = () => {
   }, []);
 
   useEffect(() => {
+    const fetchAnswers = async () => {
+      try {
+        const response = await axiosBase.get(
+          `/questions/${questionid}/answers`
+        );
+        setAnswers(response.data);
+      } catch (error) {
+        console.error("Error fetching answers:", error);
+        setAnswers([]); // Ensure answers state is an empty array if there's an error
+      }
+    };
+
+    fetchAnswers();
+  }, [questionid]);
+
+  useEffect(() => {
     const fetchQuestionDetails = async () => {
       if (userId === null) return;
 
       try {
-        // Fetch question details
+        console.log("Fetching question details for question ID:", questionid);
         const questionRes = await axiosBase.get(`/questions/${questionid}`);
+        console.log("Question Details:", questionRes.data);
         setQuestion(questionRes.data);
-
-        // Fetch answers by question ID
-        const answersRes = await axiosBase.get(
-          `/questions/${questionid}/answers`
-        );
-        setAnswers(answersRes.data);
 
         if (Number(userId) === Number(questionRes.data.userid)) {
           setIsOwner(true);
@@ -77,6 +88,8 @@ const AnswerUI = () => {
         }
       );
 
+      console.log("New Answer Response:", response.data);
+
       const newAnswerData = {
         id: response.data.id,
         content: newAnswer,
@@ -93,7 +106,6 @@ const AnswerUI = () => {
 
   const handleDeleteAnswer = async (answerId) => {
     try {
-      
       await axiosBase.delete(`/questions/${questionid}/answers/${answerId}`, {
         withCredentials: true,
       });
@@ -145,7 +157,7 @@ const AnswerUI = () => {
       >
         <h2 className="text-3xl font-semibold">Question</h2>
         <h3>
-          <span className="text-orange-900  text-sm font-bold">Title:</span>
+          <span className="text-orange-900 text-sm font-bold">Title:</span>
           {question.title}
         </h3>
 
@@ -200,7 +212,7 @@ const AnswerUI = () => {
                 className="container shadow-lg my-3 p-8"
               >
                 <Avatar
-                  name={question.username}
+                  name={username}
                   round={true}
                   size="40px"
                   className="mb-2"
@@ -221,7 +233,7 @@ const AnswerUI = () => {
                       description="Are you sure to delete this answer?"
                       okText="Yes"
                       cancelText="No"
-                      onConfirm={() => handleDeleteAnswer(answer.id)}
+                      onConfirm={() => handleDeleteAnswer(answer.answerid)}
                     >
                       <button className="px-3 py-1 bg-white text-red-800 border-2 border-red-800 rounded-sm mr-5 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1">
                         Delete
@@ -252,10 +264,10 @@ const AnswerUI = () => {
             onChange={(e) => setNewAnswer(e.target.value)}
           />
           <button
-            className="py-4 sm:px-28 mt-3 ms-8 rounded-sm bg-orange-500 text-white  hover:bg-orange-700 transition duration-300 ease-in-out hover:translate-x-1 hover:translate-y-1"
+            className="py-4 sm:px-28 mt-3 ms-8 rounded-sm bg-orange-800 text-white hover:bg-orange-700"
             onClick={handlePostAnswer}
           >
-            Post
+            Post Answer
           </button>
         </div>
       </div>

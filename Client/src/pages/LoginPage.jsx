@@ -23,7 +23,7 @@ const Login = () => {
       });
       alert("login sucessfull");
       localStorage.setItem("token", data.token);
-      navigate("/");
+      navigate("/questions");
       console.log(data);
     } catch (error) {
       alert(error.response?.data.msg);

@@ -51,7 +51,7 @@ const Login = () => {
 		<>
 			<form
 				onSubmit={handleSubmit}
-				className="w-full max-w-md mx-auto p-6 bg-white shadow-lg rounded-md space-y-6"
+				className="w-full max-w-md mx-auto p-6 bg-white shadow-lg rounded-md space-y-6 my-10"
 			>
 				<h2 className="text-2xl text-center font-bold mb-4">
 					Login to Your Account
@@ -59,7 +59,7 @@ const Login = () => {
 				<p className="text-sm text-center mb-6">
 					Don't have an account?{' '}
 					<Link to="/register">
-						<span className="text-orange-400 underline hover:text-orange-600">
+						<span className="text-orange-800 no-underline hover:text-orange-700 hover:underline">
 							Sign Up
 						</span>
 					</Link>
@@ -107,14 +107,16 @@ const Login = () => {
 						<p className="text-red-500 text-sm mt-1">{errors.password}</p>
 					)}
 				</div>
+				
 				<button
 					type="submit"
-					className="w-full p-2 bg-orange-400 text-white rounded-md hover:bg-orange-600"
+					className="w-full p-2 bg-orange-800 text-white rounded-md hover:bg-orange-700"
 				>
-					Submit
+					Login
 				</button>
+				<p className='text-center'>or</p>
 				<Link to="/register">
-					<p className="text-orange-400 underline text-center hover:text-orange-600">
+					<p className="text-orange-800  mt-6 no-underline text-center hover:text-orange-700">
 						Create an Account
 					</p>
 				</Link>

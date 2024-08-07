@@ -52,7 +52,7 @@ const NavLinks = () => {
         Home
       </Link>
       <Link
-        to="/"
+        to="/howItWorks"
         className="text-sm font-medium mx-5 my-2 hover:text-gray-500"
       >
         How it works
@@ -85,7 +85,8 @@ const NavLinks = () => {
       ) : (
         <Link
           to="/login"
-          className="text-sm cursor-pointer px-5 md:px-10 pt-2 mx-2 bg-blue-600 rounded-full text-white baseline hover:bg-blue-800"
+          className="bg-orange-800 text-white py-2 px-4 rounded"
+          style={{ marginTop: "-5px" }}
         >
           Login
         </Link>
