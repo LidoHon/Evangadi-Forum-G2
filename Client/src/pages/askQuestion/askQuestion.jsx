@@ -5,38 +5,54 @@ import { useNavigate } from 'react-router-dom';
 import styles from './askQuestion.module.css';
 import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwoTone';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AskQuestionPage = () => {
+	// Initialize state variables
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [tag, setTag] = useState('');
 	const [error, setError] = useState(null);
 	const [success, setSuccess] = useState(null);
-	const [postedQuestionId, setPostedQuestionId] = useState(null);
+	const [showQuestionDetails, setShowQuestionDetails] = useState(false);
 	const navigate = useNavigate();
 
+	// Handle form submission
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		try {
+			// Send a POST request to the server to create a new question
 			const response = await axiosBase.post('/questions/askquestion', {
 				title,
 				description,
 				tag,
 			});
-			const questionId = response.data.question.id;
-			// console.log(response);
-			setSuccess(response.data.msg);
-			setPostedQuestionId(questionId);
-			setTitle('');
-			setDescription('');
-			setTag('');
-			setError(null);
 
-			// Show success toast notification
-			toast.success('Your question has been posted successfully!');
+			// Display a success toast message
+			toast.success('Your question is posted successfully!!', {
+				position: 'top-right',
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+
+			// Reset form fields and update success state after a 2-second delay
+			setTimeout(() => {
+				setTitle('');
+				setDescription('');
+				setTag('');
+				setError(null);
+				setSuccess('Your question has been posted successfully!');
+				setShowQuestionDetails(true);
+			}, 2000);
 		} catch (error) {
+			// Handle any errors that occur during the request
 			setError(
 				error.response?.data?.msg || 'An error occurred. Please try again.'
 			);
@@ -44,12 +60,22 @@ const AskQuestionPage = () => {
 		}
 	};
 
-	return (
-		<div className={styles.container}>
-			<h1 className="text-4xl">Ask a Question</h1>
+	// Navigate to the questions page when the user clicks the "See Your Question Details..." button
+	const handleSeeQuestionDetails = () => {
+		navigate('/questions');
+	};
 
+	return (
+		<div
+			className={`${styles.container} bg-orange-100 p-4  rounded-md mb-2 shadow-2xl`}
+		>
+			<h1 className="font-bold text-3xl lg:text-5xl">Ask a Question</h1>
+			{/* Display success or error messages */}
+			<ToastContainer />
+			{/* {success && <p className="text-green-500 mb-4">{success}</p>} */}
 			{error && <p className="text-red-500 mb-4">{error}</p>}
 			<div className={styles.general_desc}>
+				{/* Display instructions for writing a good question */}
 				<p className={styles.title}>Steps to write a good question</p>
 				<div className={styles.Summarize}>
 					<ul>
@@ -72,12 +98,18 @@ const AskQuestionPage = () => {
 					</ul>
 				</div>
 			</div>
+			{/* Render the form for asking a question */}
 			<form onSubmit={handleSubmit} className="space-y-4 justify-center">
-				<h2 style={{ textAlign: 'center', fontSize: '35px' }}>
-					Post Your Question
-				</h2>
+				<div className="flex flex-col items-center justify-center text-center">
+					<h2 className="text-2xl md:text-3xl font-bold mb-2 lg:text-4xl">
+						Post Your Question
+					</h2>
+					<Link className="no-underline" to="/questions">
+						Go to questions page
+					</Link>
+				</div>
 				<div>
-					<label htmlFor="title" className="text-[20px]">
+					<label htmlFor="title" className="text-md font-medium">
 						Title
 					</label>
 					<input
@@ -91,10 +123,7 @@ const AskQuestionPage = () => {
 					/>
 				</div>
 				<div>
-					<label
-						htmlFor="description"
-						className="block text-sm font-medium text-gray-700 text-[20px]"
-					>
+					<label htmlFor="description" className="block text-md font-medium  ">
 						Description
 					</label>
 					<textarea
@@ -110,7 +139,7 @@ const AskQuestionPage = () => {
 					<label
 						htmlFor="tag"
 						placeholder="tag"
-						className="block text-sm font-medium text-gray-700 text-[20px]"
+						className="block text-md font-medium  "
 					>
 						Tag
 					</label>
@@ -123,25 +152,26 @@ const AskQuestionPage = () => {
 						required
 					/>
 				</div>
-				<button
-					type="submit"
-					className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md flex justify-center items-center hover:bg-[#5C0C9E] mx-auto text-[20px]"
-				>
-					<span className="mr-2">Send To Community</span>
-					<SendOutlinedIcon style={{ fontSize: 40 }} />
-				</button>
+				<div className="flex">
+					<button
+						type="submit"
+						className="mt-4 px-2 py-1 bg-red-800 text-white rounded-md flex justify-center items-center hover:bg-orange-700 mx-auto text-[20px]"
+					>
+						<span className="mr-2">Send To Community</span>
+						<SendOutlinedIcon style={{ fontSize: 30 }} />
+					</button>
+					{showQuestionDetails && (
+						<div
+							type="submit"
+							className="mt-4 px-2 py-1 bg-green-600 text-white rounded-md flex justify-center items-center hover:bg-green-300 mx-auto text-[20px]"
+							onClick={handleSeeQuestionDetails}
+						>
+							<span className="mr-2">See Details</span>
+							<SendOutlinedIcon style={{ fontSize: 30 }} />
+						</div>
+					)}
+				</div>
 			</form>
-			{success && (
-				<button
-					onClick={() => navigate(`/questions/${postedQuestionId}`)}
-					className="mt-4 px-4 py-2 bg-green-600 text-white rounded-md flex justify-center items-center hover:bg-green-800 mx-auto text-[20px]"
-				>
-					See Your Question Details
-				</button>
-			)}
-
-			{/* Toast Container */}
-			<ToastContainer />
 		</div>
 	);
 };

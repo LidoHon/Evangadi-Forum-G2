@@ -60,6 +60,20 @@ const Teams = [
 		linkedin: 'https://www.linkedin.com/in/john-smith/',
 		image: 'https://randomuser.me/api/portraits/men/2.jpg',
 	},
+	{
+		Name: 'Abdi',
+		portfolio: 'https://www.johnsmith.tech',
+		github: 'https://github.com/johnsmith',
+		linkedin: 'https://www.linkedin.com/in/john-smith/',
+		image: 'https://randomuser.me/api/portraits/men/2.jpg',
+	},
+	{
+		Name: 'Eduniya',
+		portfolio: 'https://www.johnsmith.tech',
+		github: 'https://github.com/johnsmith',
+		linkedin: 'https://www.linkedin.com/in/john-smith/',
+		image: 'https://randomuser.me/api/portraits/men/2.jpg',
+	},
 ];
 
 const HowItWorks = () => {
