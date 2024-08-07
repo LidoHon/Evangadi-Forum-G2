@@ -163,30 +163,37 @@ const AnswerUI = () => {
 			console.error('Error posting answer:', error);
 		}
 	};
-
-	// const handleDeleteAnswer = async (answerId) => {
-	// 	try {
-	// 		await axiosBase.delete(`/questions/${questionid}/answers/${answerId}`, {
-	// 			withCredentials: true,
-	// 		});
-	// 		setAnswers((prevAnswers) =>
-	// 			prevAnswers.filter((answer) => answer.id !== answerId)
-	// 		);
-	// 	} catch (error) {
-	// 		console.error('Error deleting answer:', error);
-	// 	}
-	// };
-
-	const handleDeleteAnswer = async (answerId) => {
+	const handleDeleteAnswer = async (answerid) => {
 		try {
-			await axiosBase.delete(`/questions/${questionid}/answers/${answerId}`, {
+			await axiosBase.delete(`/questions/${questionid}/answers/${answerid}`, {
 				withCredentials: true,
 			});
 			setAnswers((prevAnswers) =>
-				prevAnswers.filter((answer) => answer.id !== answerId)
+				prevAnswers.filter((answer) => answer.answerid !== answerid)
 			);
+			toast.success('Answer deleted successfully!', {
+				position: 'top-right',
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
 		} catch (error) {
-			console.error('Error deleting answer:', error);
+			console.error(
+				'Error deleting answer:',
+				error.response ? error.response.data : error.message
+			);
+			toast.error('Failed to delete the answer.', {
+				position: 'top-right',
+				autoClose: 2000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
 		}
 	};
 
@@ -302,7 +309,7 @@ const AnswerUI = () => {
 										>
 											<button
 												className="px-3 py-1 bg-white text-green-800 border-2 border-green-800 rounded-sm mr-5 hover:bg-green-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1"
-												onClick={() => handleEditAnswer(answer.id)}
+												onClick={() => handleEditAnswer(answer.answerid)}
 											>
 												Edit
 											</button>
@@ -312,7 +319,7 @@ const AnswerUI = () => {
 											description="Are you sure to delete this answer?"
 											okText="Yes"
 											cancelText="No"
-											onConfirm={() => handleDeleteAnswer(answer.id)}
+											onConfirm={() => handleDeleteAnswer(answer.answerid)}
 										>
 											<button className="px-3 py-1 bg-white text-red-800 border-2 border-red-800 rounded-sm mr-5 hover:bg-red-700 hover:text-white transition duration-300 ease-in-out hover:translate-y-1">
 												Delete
