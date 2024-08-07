@@ -153,7 +153,9 @@ function UpdateUser() {
 	return (
 		<div className={styles.container}>
 			<div className={styles.profileUpdate}>
-				<h2 className={styles.profileText}>Update Profile</h2>
+				<h2 className={`${styles.profileText} lg:text-2xl font-semibold pb-4`}>
+					Update Profile
+				</h2>
 				{/* <h5 className={styles.reftext} ref={headerReftext}>
 					Profile Sucesfully updated
 				</h5> */}
@@ -206,7 +208,9 @@ function UpdateUser() {
 				</form>
 			</div>
 			<div className={styles.passwordChange}>
-				<h2 className={styles.passwrodText}>
+				<h2
+					className={`${styles.passwrodText} lg:text-2xl font-semibold pb-4 `}
+				>
 					Use this field if you would like to change your password
 				</h2>
 				<form className={styles.form} onSubmit={FormSubmitHandler}>
