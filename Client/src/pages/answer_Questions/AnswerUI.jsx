@@ -50,6 +50,7 @@ const AnswerUI = () => {
 				const response = await axiosBase.get(
 					`/questions/${questionid}/answers`
 				);
+				// console.log('from answer:', response);
 				setAnswers(response.data);
 			} catch (error) {
 				console.error('Error fetching answers:', error);
@@ -284,11 +285,14 @@ const AnswerUI = () => {
 								className="container shadow-lg my-3 p-8"
 							>
 								<Avatar
-									name={question.username}
+									name={answer.username}
 									round={true}
 									size="40px"
 									className="mb-2"
 								/>
+								<span className="pl-4 mt-2 text-sm font-medium">
+									{answer.username || 'Anonymous'}
+								</span>
 
 								<p className="mb-2">{answer.answer}</p>
 								{Number(userId) === Number(answer.userid) && (
