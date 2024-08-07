@@ -290,6 +290,9 @@ const AnswerUI = () => {
 									size="40px"
 									className="mb-2"
 								/>
+								<span className="pl-4 mt-2 text-sm font-medium">
+									{answer.username || 'Anonymous'}
+								</span>
 
 								<p className="mb-2">{answer.answer}</p>
 								{Number(userId) === Number(answer.userid) && (
