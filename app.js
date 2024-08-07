@@ -1,9 +1,10 @@
 const express = require('express');
-////////////////START///////////////////////////////
-const https = require('https'); // added modules
-const fs = require('fs'); // added modules
-const path = require('path'); // added modules
-////////////////END////////////////////////////////
+
+//  removing the ssl for now
+// const https = require('https');
+// const fs = require('fs');
+// const path = require('path');
+
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./Routes/UserRoute');
 const questionsRoutes = require('./Routes/questionRoute');
@@ -15,18 +16,18 @@ require('dotenv').config();
 
 ///////////////////////START//////////////////////////////////////////
 // Joining and reading keys and certificate for the server
-const privateKeyPath = path.join(__dirname, 'private-key-no-passphrase.pem');
-const certificatePath = path.join(__dirname, 'certificate.pem');
-const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
-const certificate = fs.readFileSync(certificatePath, 'utf8');
+// const privateKeyPath = path.join(__dirname, 'private-key-no-passphrase.pem');
+// const certificatePath = path.join(__dirname, 'certificate.pem');
+// const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
+// const certificate = fs.readFileSync(certificatePath, 'utf8');
 ///////////////////////END///////////////////////////////////////////
 
 ////////////////////////START/////////////////////////////////////////
 // key and object cert for the https server
-const options = {
-	key: privateKey,
-	cert: certificate,
-};
+// const options = {
+// 	key: privateKey,
+// 	cert: certificate,
+// };
 /////////////////////////END///////////////////////////////////////
 
 // Initialize Express app
@@ -39,8 +40,8 @@ const PORT = process.env.PORT || 5000;
 // app.use(cors());
 
 const allowedOrigins = [
-	'https://localhost:5173',
-	'https://localhost:5174',
+	'http://localhost:5173',
+	'http://localhost:5174',
 
 	// Add more origins to this list if needed. don't forget to Update this list whenever the React development server's URL changes eshi..
 ];
@@ -57,7 +58,7 @@ const corsOptions = {
 	credentials: true,
 };
 
-const profileRoutes = require('./Routes/UserRoute'); // Update user
+// const profileRoutes = require('./Routes/UserRoute'); // Update user
 
 // Apply CORS middleware
 app.use(cors(corsOptions));
@@ -69,7 +70,7 @@ app.use(express.json());
 // cookie parser middle ware
 app.use(cookieParser());
 
-app.use('/api', profileRoutes); // Profile route
+// app.use('/api', profileRoutes); // Profile route
 
 // routes
 
@@ -100,7 +101,8 @@ app.use('/api/questions/:questionId/answers', answersRoutes);
 const start = async () => {
 	try {
 		const result = await dbConnection.execute("select 'test' ");
-		https.createServer(options, app).listen(5000, () => {
+		// https.createServer(options, app).
+		app.listen(PORT, () => {
 			console.log('database connected');
 			console.log(`server running on port ${PORT}`);
 			// console.log(result)
