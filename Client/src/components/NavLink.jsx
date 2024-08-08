@@ -7,23 +7,30 @@ const NavLinks = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [username, setUsername] = useState(null);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get("/users/check", {
-          withCredentials: true,
-        });
-        setUsername(response.data.username);
-      } catch (error) {
-        console.error(
-          "Error fetching user data:",
-          error.response?.data?.msg || error.message
-        );
-      }
-    };
+	useEffect(() => {
+		const fetchUser = async () => {
+			try {
+				const response = await axios.get('/users/check', {
+					withCredentials: true,
+				});
+				// console.log(response);
+				setUsername(response.data.username);
+			} catch (error) {
+				console.error(
+					'Error fetching user data:',
+					error.response?.data?.msg || error.message
+				);
+			}
+		};
 
-    fetchUser();
-  }, []);
+		fetchUser();
+
+		// Set up interval to fetch user data every 5 seconds
+		const intervalId = setInterval(fetchUser, 200);
+
+		// clear the interval when the component unmounts
+		return () => clearInterval(intervalId);
+	}, []);
 
   const logoutHandler = async () => {
     try {
@@ -43,55 +50,56 @@ const NavLinks = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  return (
-    <>
-      <Link
-        to="/"
-        className="text-sm font-medium mx-5 my-2 hover:text-gray-500"
-      >
-        Home
-      </Link>
-      <Link
-        to="/howItWorks"
-        className="text-sm font-medium mx-5 my-2 hover:text-gray-500"
-      >
-        How it works
-      </Link>
-      {username ? (
-        <div className="relative">
-          <button
-            onClick={toggleDropdown}
-            className="text-sm cursor-pointer px-4 py-2 rounded-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none"
-          >
-            {username}
-          </button>
-          {isDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded-md shadow-lg z-20">
-              <Link
-                to="/update-profile"
-                className="block px-4 py-2 text-sm hover:bg-gray-100"
-              >
-                Profile
-              </Link>
-              <button
-                onClick={logoutHandler}
-                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
-              >
-                Logout
-              </button>
-            </div>
-          )}
-        </div>
-      ) : (
-        <Link
-          to="/login"
-          className="bg-orange-800 text-white py-2 px-4 rounded"
-        >
-          Login
-        </Link>
-      )}
-    </>
-  );
+	return (
+		<>
+			<Link
+				to="/questions"
+				className="text-sm font-medium mx-5 my-2 hover:text-gray-500"
+			>
+				Home
+			</Link>
+			<Link
+				to="/howItWorks"
+				className="text-sm font-medium mx-5 my-2 hover:text-gray-500"
+			>
+				How it works
+			</Link>
+			{username ? (
+				<div className="relative">
+					<button
+						onClick={toggleDropdown}
+						className="text-sm cursor-pointer px-4 py-2 rounded-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none"
+					>
+						{username}
+					</button>
+					{isDropdownOpen && (
+						<div className="absolute right-0 mt-2 w-48 bg-white text-gray-800 rounded-md shadow-lg z-20">
+							<Link
+								to="/update-profile"
+								className="block px-4 py-2 text-sm hover:bg-gray-100"
+							>
+								Profile
+							</Link>
+							<button
+								onClick={logoutHandler}
+								className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+							>
+								Logout
+							</button>
+						</div>
+					)}
+				</div>
+			) : (
+				<Link
+					to="/login"
+					className="bg-orange-800 text-white py-2 px-4 rounded"
+					style={{ marginTop: '-5px' }}
+				>
+					Login
+				</Link>
+			)}
+		</>
+	);
 };
 
 export default NavLinks;
