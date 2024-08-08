@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from '../axiosConfig';
+import { useUser } from '../Context/UserContext';
 
 const NavLinks = () => {
+	const { username, setUsername } = useUser();
 	const navigate = useNavigate();
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-	const [username, setUsername] = useState(null);
 
-	const toggleDropdown = () => {
-		setIsDropdownOpen(!isDropdownOpen);
-	};
+	const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
-	const closeDropdown = () => {
-		setIsDropdownOpen(false);
-	};
+	const closeDropdown = () => setIsDropdownOpen(false);
 
 	const logoutHandler = async () => {
 		try {
@@ -29,6 +26,23 @@ const NavLinks = () => {
 			);
 		}
 	};
+	// useEffect(() => {
+	// 	const handleUserChange = async () => {
+	// 		try {
+	// 			const response = await axios.get('/users/check', {
+	// 				withCredentials: true,
+	// 			});
+	// 			setUsername(response.data.username);
+	// 		} catch (error) {
+	// 			console.error(
+	// 				'Error fetching user data:',
+	// 				error.response?.data?.msg || error.message
+	// 			);
+	// 		}
+	// 	};
+
+	// 	handleUserChange();
+	// }, [logoutHandler]);
 
 	useEffect(() => {
 		const fetchUser = async () => {
@@ -46,25 +60,13 @@ const NavLinks = () => {
 		};
 
 		fetchUser();
-	}, []);
 
-	useEffect(() => {
-		const handleUserChange = async () => {
-			try {
-				const response = await axios.get('/users/check', {
-					withCredentials: true,
-				});
-				setUsername(response.data.username);
-			} catch (error) {
-				console.error(
-					'Error fetching user data:',
-					error.response?.data?.msg || error.message
-				);
-			}
-		};
+		// Set up interval to fetch user data every 5 seconds
+		// const intervalId = setInterval(fetchUser, 200);
 
-		handleUserChange();
-	}, [logoutHandler]);
+		// // clear the interval when the component unmounts
+		// return () => clearInterval(intervalId);
+	}, [setUsername]);
 
 	return (
 		<>
