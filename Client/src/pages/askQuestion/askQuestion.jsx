@@ -17,6 +17,7 @@ const AskQuestionPage = () => {
 	const [error, setError] = useState(null);
 	const [success, setSuccess] = useState(null);
 	const [showQuestionDetails, setShowQuestionDetails] = useState(false);
+	const [postedQuestionId, setPostedQuestionId] = useState(null);
 	const navigate = useNavigate();
 
 	// Handle form submission
@@ -30,6 +31,9 @@ const AskQuestionPage = () => {
 				description,
 				tag,
 			});
+			// console.log(response);
+			const questionId = response.data.question.id;
+			setPostedQuestionId(questionId);
 
 			// Display a success toast message
 			toast.success('Your question is posted successfully!!', {
@@ -164,7 +168,7 @@ const AskQuestionPage = () => {
 						<div
 							type="submit"
 							className="mt-4 px-2 py-1 bg-green-600 text-white rounded-md flex justify-center items-center hover:bg-green-300 mx-auto text-[20px]"
-							onClick={handleSeeQuestionDetails}
+							onClick={() => navigate(`/questions/${postedQuestionId}`)}
 						>
 							<span className="mr-2">See Details</span>
 							<SendOutlinedIcon style={{ fontSize: 30 }} />

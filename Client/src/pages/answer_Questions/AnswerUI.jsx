@@ -7,8 +7,9 @@ import axiosBase from '../../axiosConfig';
 import { Popconfirm } from 'antd';
 import { GrLinkNext } from 'react-icons/gr';
 import { toast, ToastContainer } from 'react-toastify';
-
+import { useUser } from '../../Context/UserContext';
 const AnswerUI = () => {
+	const { username } = useUser();
 	const { questionid } = useParams();
 	const navigate = useNavigate();
 	const [question, setQuestion] = useState(null);
@@ -17,7 +18,7 @@ const AnswerUI = () => {
 	const [error, setError] = useState(null);
 	const [isOwner, setIsOwner] = useState(false);
 	const [userId, setUserId] = useState(null);
-	const [username, setUsername] = useState('');
+	// const [username, setUsername] = useState('');
 
 	useEffect(() => {
 		const fetchUser = async () => {
