@@ -137,7 +137,7 @@ function UpdateUser() {
 							className={styles.input}
 						/>
 					</div>
-					<button type="submit" className={styles.button}>
+					<button type="submit" className={`${styles.button} bg-orange-800 hover:bg-orange-700`}>
 						Update
 					</button>
 				</form>
@@ -205,7 +205,7 @@ function UpdateUser() {
 							)}
 						</button>
 					</div>
-					<button type="submit" className={styles.button}>
+					<button type="submit" className={`${styles.button} bg-orange-800 bg-orange-700`}>
 						Change Password
 					</button>
 				</form>

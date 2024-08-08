@@ -34,7 +34,7 @@ const Header = () => {
           </div>
           {isOpen && (
             <div
-              className={` fixed top-0 left-0 w-full  bg-white shadow-lg flex flex-col items-center justify-center text-center space-y-4 transition-transform duration-300 ease-in-out`}
+              className={` fixed top-0 left-0 w-full  bg-white shadow-lg flex flex-col items-center justify-center text-center space-y-4 transition-transform duration-300 ease-in-out `}
             >
               <button
                 onClick={toggleNavbar}
