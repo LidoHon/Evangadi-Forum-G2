@@ -1,11 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "../axiosConfig";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from '../axiosConfig';
+import { useUser } from '../Context/UserContext';
 
 const NavLinks = () => {
-  const navigate = useNavigate();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [username, setUsername] = useState(null);
+	const { username, setUsername } = useUser();
+	const navigate = useNavigate();
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+	const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+	const closeDropdown = () => setIsDropdownOpen(false);
+
+	const logoutHandler = async () => {
+		try {
+			await axios.post('/users/logout', {}, { withCredentials: true });
+			localStorage.removeItem('token');
+			setUsername(null);
+			closeDropdown();
+			navigate('/');
+		} catch (error) {
+			console.error(
+				'Error logging out:',
+				error.response?.data?.msg || error.message
+			);
+		}
+	};
 
 	useEffect(() => {
 		const fetchUser = async () => {
@@ -13,7 +33,6 @@ const NavLinks = () => {
 				const response = await axios.get('/users/check', {
 					withCredentials: true,
 				});
-				// console.log(response);
 				setUsername(response.data.username);
 			} catch (error) {
 				console.error(
@@ -26,29 +45,11 @@ const NavLinks = () => {
 		fetchUser();
 
 		// Set up interval to fetch user data every 5 seconds
-		const intervalId = setInterval(fetchUser, 200);
+		// const intervalId = setInterval(fetchUser, 200);
 
-		// clear the interval when the component unmounts
-		return () => clearInterval(intervalId);
-	}, []);
-
-  const logoutHandler = async () => {
-    try {
-      await axios.post("/users/logout", {}, { withCredentials: true });
-      localStorage.removeItem("token");
-      setUsername(null);
-      navigate("/");
-    } catch (error) {
-      console.error(
-        "Error logging out:",
-        error.response?.data?.msg || error.message
-      );
-    }
-  };
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+		// // clear the interval when the component unmounts
+		// return () => clearInterval(intervalId);
+	}, [setUsername]);
 
 	return (
 		<>
@@ -77,6 +78,7 @@ const NavLinks = () => {
 							<Link
 								to="/update-profile"
 								className="block px-4 py-2 text-sm hover:bg-gray-100"
+								onClick={closeDropdown}
 							>
 								Profile
 							</Link>

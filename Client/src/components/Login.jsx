@@ -3,8 +3,10 @@ import { useRef } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from '../axiosConfig';
+import { useUser } from '../Context/UserContext';
 
 const Login = () => {
+	const { setUsername } = useUser();
 	const navigate = useNavigate();
 	const emailDom = useRef(null);
 	const passwordDom = useRef(null);
@@ -35,8 +37,10 @@ const Login = () => {
 				email: emailValue,
 				password: passwordValue,
 			});
+			// console.log(data);
 			setGeneralError(''); // Clear any previous general errors
 			localStorage.setItem('token', data.token);
+			setUsername(data.username);
 			navigate('/questions');
 			// console.log(data);
 		} catch (error) {

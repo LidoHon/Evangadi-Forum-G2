@@ -4,8 +4,11 @@ import axios from '../../axiosConfig';
 import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useUser } from '../../Context/UserContext';
 
 function UpdateUser() {
+	const { setUsername } = useUser();
+
 	const [username, SetUsername] = useState('');
 	const [firstname, SetFirstname] = useState('');
 	const [lastname, SetLastname] = useState('');
@@ -33,8 +36,9 @@ function UpdateUser() {
 
 		try {
 			const response = await axios.put('/users/profile', profiledata);
-			console.log('Profile updated successfully', response.data);
+			// console.log('Profile updated successfully', response.data);
 			if (response.data.msg === 'Profile updated successfully') {
+				setUsername(username);
 				toast.success('Profile updated successfully');
 			}
 			if (response.data.msg === 'Password changed sucesfully') {

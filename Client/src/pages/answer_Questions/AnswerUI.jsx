@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
-import Avatar from "react-avatar";
-import Spinner from "../../components/Spinner";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import axiosBase from "../../axiosConfig";
-import { Popconfirm } from "antd";
-import { GrLinkNext } from "react-icons/gr";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
+import React, { useState, useEffect } from 'react';
+import classes from './styles/answerUI.module.css';
+import Avatar from 'react-avatar';
+import Spinner from '../../components/Spinner';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import axiosBase from '../../axiosConfig';
+import { Popconfirm } from 'antd';
+import { GrLinkNext } from 'react-icons/gr';
+import { toast, ToastContainer } from 'react-toastify';
+import { useUser } from '../../Context/UserContext';
 const AnswerUI = () => {
-  const { questionid } = useParams();
-  const navigate = useNavigate();
-  const [question, setQuestion] = useState(null);
-  const [answers, setAnswers] = useState([]);
-  const [newAnswer, setNewAnswer] = useState("");
-  const [error, setError] = useState(null);
-  const [isOwner, setIsOwner] = useState(false);
-  const [userId, setUserId] = useState(null);
-  const [username, setUsername] = useState("");
+	const { username } = useUser();
+	const { questionid } = useParams();
+	const navigate = useNavigate();
+	const [question, setQuestion] = useState(null);
+	const [answers, setAnswers] = useState([]);
+	const [newAnswer, setNewAnswer] = useState('');
+	const [error, setError] = useState(null);
+	const [isOwner, setIsOwner] = useState(false);
+	const [userId, setUserId] = useState(null);
+	// const [username, setUsername] = useState('');
 
   useEffect(() => {
     const fetchUser = async () => {
