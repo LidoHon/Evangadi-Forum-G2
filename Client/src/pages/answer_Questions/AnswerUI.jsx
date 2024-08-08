@@ -58,7 +58,7 @@ const AnswerUI = () => {
 		};
 
 		fetchAnswers();
-	}, [questionid]);
+	}, [questionid,answers]);
 
 	useEffect(() => {
 		const fetchQuestionDetails = async () => {

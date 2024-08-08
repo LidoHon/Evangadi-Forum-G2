@@ -4,7 +4,7 @@ import Register from '../components/Register';
 import AboutPage from '../components/AboutPage/AboutPage';
 const RegisterPage = () => {
 	return (
-		<div className="flex flex-row">
+		<div className="flex mx-auto">
 			<Register />
 			{/* <Paragraph /> */}
 			<AboutPage />
