@@ -13,6 +13,7 @@
 	"license": "ISC",
 	"description": "",
 	"dependencies": {
+		"@sentry/react": "^8.24.0",
 		"bcrypt": "^5.1.1",
 		"concurrently": "^8.2.2",
 		"cookie-parser": "^1.4.6",
