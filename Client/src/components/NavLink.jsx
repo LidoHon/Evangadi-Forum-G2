@@ -27,7 +27,7 @@ const NavLinks = () => {
 		// Set up interval to fetch user data every 5 seconds
 		const intervalId = setInterval(fetchUser, 5000);
 
-		// Clear the interval when the component unmounts
+		// clear the interval when the component unmounts
 		return () => clearInterval(intervalId);
 	}, []);
 
