@@ -23,6 +23,12 @@ const NavLinks = () => {
 		};
 
 		fetchUser();
+
+		// Set up interval to fetch user data every 5 seconds
+		const intervalId = setInterval(fetchUser, 5000);
+
+		// Clear the interval when the component unmounts
+		return () => clearInterval(intervalId);
 	}, []);
 
 	const logoutHandler = async () => {
@@ -46,7 +52,7 @@ const NavLinks = () => {
 	return (
 		<>
 			<Link
-				to="/"
+				to="/questions"
 				className="text-sm font-medium mx-5 my-2 hover:text-gray-500"
 			>
 				Home
