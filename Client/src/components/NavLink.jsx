@@ -92,8 +92,8 @@ const NavLinks = () => {
 			) : (
 				<Link
 					to="/login"
-					className="bg-orange-800 text-white py-2 px-4 rounded"
-					style={{ marginTop: '-5px' }}
+					className="bg-orange-800 text-white py-2 px-4 rounded lg:mt-0 sm:mt-5 md:mt-0 hover:bg-orange-700"
+					// style={{ marginTop: '-5px' }}
 				>
 					Login
 				</Link>
