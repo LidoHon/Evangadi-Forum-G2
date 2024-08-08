@@ -37,7 +37,7 @@ const Login = () => {
 				email: emailValue,
 				password: passwordValue,
 			});
-			console.log(data);
+			// console.log(data);
 			setGeneralError(''); // Clear any previous general errors
 			localStorage.setItem('token', data.token);
 			setUsername(data.username);

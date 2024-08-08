@@ -8,30 +8,11 @@ import Avatar from 'react-avatar';
 
 const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 	const [questions, setQuestions] = useState([]);
-	const [userDetails, setUserDetails] = useState({});
 	const [filteredQuestions, setFilteredQuestions] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [searchTerm, setSearchTerm] = useState('');
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		const fetchUserDetails = async () => {
-			try {
-				const response = await axiosBase.get('/users');
-				const users = response.data;
-				const userMap = {};
-				users.forEach((user) => {
-					userMap[user.userid] = user.username;
-				});
-				setUserDetails(userMap);
-			} catch (error) {
-				console.error('Error fetching user details:', error);
-			}
-		};
-
-		fetchUserDetails();
-	}, []);
 
 	useEffect(() => {
 		const fetchQuestions = async () => {

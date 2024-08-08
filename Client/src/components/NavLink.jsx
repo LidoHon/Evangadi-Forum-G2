@@ -26,23 +26,6 @@ const NavLinks = () => {
 			);
 		}
 	};
-	// useEffect(() => {
-	// 	const handleUserChange = async () => {
-	// 		try {
-	// 			const response = await axios.get('/users/check', {
-	// 				withCredentials: true,
-	// 			});
-	// 			setUsername(response.data.username);
-	// 		} catch (error) {
-	// 			console.error(
-	// 				'Error fetching user data:',
-	// 				error.response?.data?.msg || error.message
-	// 			);
-	// 		}
-	// 	};
-
-	// 	handleUserChange();
-	// }, [logoutHandler]);
 
 	useEffect(() => {
 		const fetchUser = async () => {
