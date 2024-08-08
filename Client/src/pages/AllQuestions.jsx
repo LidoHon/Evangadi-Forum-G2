@@ -89,7 +89,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 	};
 
 	return (
-		<div className="allQuestion p-4 flex flex-col lg:flex-row  h-full container mx-auto ">
+		<div className="allQuestion p-4 flex flex-col lg:flex-row  h-full container mx-auto max-w-[1375px] ">
 			<>
 				<div className=" mb-3 lg:mb-4 flex flex-col gap-2 lg:bg-orange-50 rounded-lg  lg:w-1/2 group lg:h-40 shadow-md">
 					<h2 className="text-sm md:text-lg lg:text-2xl font-bold mb-0 md:mb-1 mx-auto mt-5 flex">
@@ -134,7 +134,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 				</div>
 			</>
 			<FaHandPointRight
-				className=" ml-10 mb-4 rotate-90 lg:rotate-0 text-red-800 "
+				className=" ml-10 mb-4 mr-2 rotate-90 lg:rotate-0 text-red-800 "
 				size={60}
 			/>
 
@@ -145,7 +145,7 @@ const AllQuestion = ({ savedQuestions, setSavedQuestions }) => {
 				</p>
 			)}
 			{filteredQuestions.length > 0 ? (
-				<ul className=" space-y-4 w-5/6 lg:w-2/6  mx-auto group">
+				<ul className=" space-y-4 w-5/6 lg:w-4/6  mx-auto group">
 					{filteredQuestions.map((question) => {
 						// checking if the question is saved
 						const isSaved = savedQuestions.some(

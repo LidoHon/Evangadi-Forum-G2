@@ -13,12 +13,16 @@ const Header = () => {
 
 	return (
 		<header
-			className={` py-1 my-5 mx-0 md:mx-40 lg:mx-60 md:bg-orange-50 md:rounded md:shadow-sm `}
+			className={` py-1 my-5 mx-0 md:mx-20 lg:mx-40 md:bg-orange-50 md:rounded md:shadow-sm `}
 		>
 			<div className="relative container mx-auto p-6 flex flex-wrap">
 				<div className="flex items-center justify-between w-full">
 					<Link to="/">
-						<img src={logo} alt="Logo" className="h-10 hidden md:block" />
+						<img
+							src={logo}
+							alt="Logo"
+							className="h-10 md:h-8  hidden md:block"
+						/>
 					</Link>
 					<div className={`hidden md:flex justify-around pt-3 space-x-10`}>
 						<NavLinks />

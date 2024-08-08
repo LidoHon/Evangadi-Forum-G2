@@ -13,6 +13,7 @@ const NavLinks = () => {
 				const response = await axios.get('/users/check', {
 					withCredentials: true,
 				});
+				// console.log(response);
 				setUsername(response.data.username);
 			} catch (error) {
 				console.error(
@@ -25,7 +26,7 @@ const NavLinks = () => {
 		fetchUser();
 
 		// Set up interval to fetch user data every 5 seconds
-		const intervalId = setInterval(fetchUser, 5000);
+		const intervalId = setInterval(fetchUser, 200);
 
 		// clear the interval when the component unmounts
 		return () => clearInterval(intervalId);

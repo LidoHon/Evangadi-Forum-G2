@@ -58,12 +58,12 @@ const AnswerUI = () => {
 		};
 
 		fetchAnswers();
-		// set up interval to fetch user data every 2 seconds
-		const intervalId = setInterval(fetchAnswers, 2000);
+		// // set up interval to fetch user data every 1 seconds
+		// const intervalId = setInterval(fetchAnswers, 1000);
 
-		// slear the interval when the component unmounts
-		return () => clearInterval(intervalId);
-	}, [questionid]);
+		// // slear the interval when the component unmounts
+		// return () => clearInterval(intervalId);
+	}, [questionid, answers]);
 
 	useEffect(() => {
 		const fetchQuestionDetails = async () => {
