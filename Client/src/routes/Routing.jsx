@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
 	Route,
 	createBrowserRouter,
@@ -20,7 +20,7 @@ import HowItWorks from '../pages/howItworks/HowItWorks';
 import Landing from '../pages/landing/Landing';
 import EditAnswerPage from '../pages/EditAnswePage';
 const Routing = () => {
-	const [savedQuestions, setSavedQuestions] = useState([]);
+  const [savedQuestions, setSavedQuestions] = useState([]);
 
 	const routes = createBrowserRouter(
 		createRoutesFromElements(
@@ -69,7 +69,7 @@ const Routing = () => {
 		)
 	);
 
-	return <RouterProvider router={routes} />;
+  return <RouterProvider router={routes} />;
 };
 
 export default Routing;

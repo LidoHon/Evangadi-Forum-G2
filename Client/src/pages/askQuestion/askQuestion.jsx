@@ -17,7 +17,6 @@ const AskQuestionPage = () => {
 	const [error, setError] = useState(null);
 	const [success, setSuccess] = useState(null);
 	const [showQuestionDetails, setShowQuestionDetails] = useState(false);
-	const [postedQuestionId, setPostedQuestionId] = useState(null);
 	const navigate = useNavigate();
 
 	// Handle form submission
@@ -31,14 +30,11 @@ const AskQuestionPage = () => {
 				description,
 				tag,
 			});
-			// console.log(response);
-			const questionId = response.data.question.id;
-			setPostedQuestionId(questionId);
 
 			// Display a success toast message
 			toast.success('Your question is posted successfully!!', {
 				position: 'top-right',
-				autoClose: 2000,
+				autoClose: 1000,
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
@@ -54,7 +50,7 @@ const AskQuestionPage = () => {
 				setError(null);
 				setSuccess('Your question has been posted successfully!');
 				setShowQuestionDetails(true);
-			}, 2000);
+			}, 1000);
 		} catch (error) {
 			// Handle any errors that occur during the request
 			setError(
@@ -71,111 +67,119 @@ const AskQuestionPage = () => {
 
 	return (
 		<div
-			className={`${styles.container} bg-orange-100 p-4  rounded-md mb-2 shadow-2xl`}
+			className={`${styles.container}  px-6 py-16  rounded-md mb-2 shadow-xl lg:min-w-[1350px] md:min-w-[800px]`}
 		>
-			<h1 className="font-bold text-3xl lg:text-5xl">Ask a Question</h1>
-			{/* Display success or error messages */}
-			<ToastContainer />
-			{/* {success && <p className="text-green-500 mb-4">{success}</p>} */}
-			{error && <p className="text-red-500 mb-4">{error}</p>}
-			<div className={styles.general_desc}>
-				{/* Display instructions for writing a good question */}
-				<p className={styles.title}>Steps to write a good question</p>
-				<div className={styles.Summarize}>
-					<ul>
-						<li>
-							<ArrowCircleRightTwoToneIcon style={{ fontSize: 30 }} />
-							Summarize your problem in a one-line title.
-						</li>
-						<li>
-							<ArrowCircleRightTwoToneIcon style={{ fontSize: 30 }} />
-							Describe your problem in more detail.
-						</li>
-						<li>
-							<ArrowCircleRightTwoToneIcon style={{ fontSize: 30 }} />
-							Describe what you tried and what you expected to happen.
-						</li>
-						<li>
-							<ArrowCircleRightTwoToneIcon style={{ fontSize: 30 }} />
-							Review your question and post it to the site.
-						</li>
-					</ul>
-				</div>
-			</div>
-			{/* Render the form for asking a question */}
-			<form onSubmit={handleSubmit} className="space-y-4 justify-center">
-				<div className="flex flex-col items-center justify-center text-center">
-					<h2 className="text-2xl md:text-3xl font-bold mb-2 lg:text-4xl">
-						Post Your Question
-					</h2>
-					<Link className="no-underline" to="/questions">
-						Go to questions page
-					</Link>
-				</div>
-				<div>
-					<label htmlFor="title" className="text-md font-medium">
-						Title
-					</label>
-					<input
-						type="text"
-						id="title"
-						placeholder="Question Title"
-						value={title}
-						onChange={(e) => setTitle(e.target.value)}
-						required
-						className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-[20px]"
-					/>
-				</div>
-				<div>
-					<label htmlFor="description" className="block text-md font-medium  ">
-						Description
-					</label>
-					<textarea
-						id="description"
-						placeholder="Question Description. . ."
-						value={description}
-						onChange={(e) => setDescription(e.target.value)}
-						className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-[20px]"
-						required
-					/>
-				</div>
-				<div>
-					<label
-						htmlFor="tag"
-						placeholder="tag"
-						className="block text-md font-medium  "
-					>
-						Tag
-					</label>
-					<input
-						type="text"
-						id="tag"
-						value={tag}
-						onChange={(e) => setTag(e.target.value)}
-						className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-[20px]"
-						required
-					/>
-				</div>
-				<div className="flex">
-					<button
-						type="submit"
-						className="mt-4 px-2 py-1 bg-red-800 text-white rounded-md flex justify-center items-center hover:bg-orange-700 mx-auto text-[20px]"
-					>
-						<span className="mr-2">Send To Community</span>
-						<SendOutlinedIcon style={{ fontSize: 30 }} />
-					</button>
-					{showQuestionDetails && (
-						<div
-							type="submit"
-							className="mt-4 px-2 py-1 bg-green-600 text-white rounded-md flex justify-center items-center hover:bg-green-300 mx-auto text-[20px]"
-							onClick={() => navigate(`/questions/${postedQuestionId}`)}
-						>
-							<span className="mr-2">See Details</span>
-							<SendOutlinedIcon style={{ fontSize: 30 }} />
+			<div className="flex flex-col md:flex-row ">
+				<div className="">
+					<h1 className="font-bold text-3xl ms-12 text-orange-800 pt-4">
+						Ask a Question
+					</h1>
+					{/* Display success or error messages */}
+					<ToastContainer />
+					{/* {success && <p className="text-green-500 mb-4">{success}</p>} */}
+					{error && <p className="text-red-500 mb-4">{error}</p>}
+					<div className={styles.general_desc}>
+						{/* Display instructions for writing a good question */}
+						<p className={styles.title}>Steps to write a good question</p>
+						<div className={styles.Summarize}>
+							<ul>
+								<li>
+									<ArrowCircleRightTwoToneIcon style={{ fontSize: 30 }} />
+									Summarize your problem in a one-line title.
+								</li>
+								<li>
+									<ArrowCircleRightTwoToneIcon style={{ fontSize: 30 }} />
+									Describe your problem in more detail.
+								</li>
+								<li>
+									<ArrowCircleRightTwoToneIcon style={{ fontSize: 30 }} />
+									Describe what you tried and what you expected to happen.
+								</li>
+								<li>
+									<ArrowCircleRightTwoToneIcon style={{ fontSize: 30 }} />
+									Review your question and post it to the site.
+								</li>
+							</ul>
 						</div>
-					)}
+					</div>
 				</div>
-			</form>
+				{/* Render the form for asking a question */}
+
+				<form
+					onSubmit={handleSubmit}
+					className="space-y-4 mx-auto px-4 sm:px-6 lg:px-8 md:w-2/3"
+				>
+					<div className="flex flex-col text-center md:text-left sm:mx-auto md:w-full">
+						<h2 className="text-2xl md:text-3xl font-bold mb-2 lg:text-4xl sm:text-xl">
+							Post Your Question
+						</h2>
+						<Link
+							className="no-underline hover:text-orange-700 hover:font-semibold text-orange-800 transition-all"
+							to="/questions"
+						>
+							Go to questions page
+						</Link>
+					</div>
+					<div>
+						<label htmlFor="title" className="text-md font-medium">
+							Title
+						</label>
+						<input
+							type="text"
+							id="title"
+							placeholder="Question Title"
+							value={title}
+							onChange={(e) => setTitle(e.target.value)}
+							required
+							className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-lg"
+						/>
+					</div>
+					<div>
+						<label htmlFor="description" className="block text-md font-medium">
+							Description
+						</label>
+						<textarea
+							id="description"
+							placeholder="Question Description..."
+							value={description}
+							onChange={(e) => setDescription(e.target.value)}
+							required
+							className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-lg"
+						/>
+					</div>
+					<div>
+						<label htmlFor="tag" className="block text-md font-medium">
+							Tag
+						</label>
+						<input
+							type="text"
+							id="tag"
+							value={tag}
+							onChange={(e) => setTag(e.target.value)}
+							required
+							className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-lg"
+						/>
+					</div>
+					<div className="flex flex-col md:flex-row md:space-x-4">
+						<button
+							type="submit"
+							className="mt-4 py-3 bg-orange-800 text-white px-5 rounded-md flex justify-center items-center hover:bg-orange-700 text-lg w-full md:w-auto transform transition-transform duration-200 hover:scale-95"
+						>
+							<span className="text-center">Send To Community</span>
+							<SendOutlinedIcon style={{ fontSize: 30 }} />
+						</button>
+						{showQuestionDetails && (
+							<div
+								onClick={handleSeeQuestionDetails}
+								className="mt-4 px-5 py-3 bg-green-800 text-white rounded-md flex justify-center items-center hover:bg-green-700 w-full md:w-auto transform text-lg transition-transform duration-200 hover:scale-95"
+							>
+								<span className="mr-2">See Details</span>
+								<SendOutlinedIcon style={{ fontSize: 30 }} />
+							</div>
+						)}
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 };

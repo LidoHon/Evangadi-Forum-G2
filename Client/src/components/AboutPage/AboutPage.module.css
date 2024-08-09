@@ -1,6 +1,12 @@
+@media (max-width: 800px) {
+  .container {
+    display: none;
+  }
+}
+
 .container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 50%;
+  margin-left:2%;
   padding: 2rem;
 }
 
@@ -12,14 +18,18 @@
 }
 
 .subtitle {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #e33f00;
+  font-size: 3rem;
+  font-weight: 700;
+      -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+    background-image: linear-gradient(310deg, #000000, #e33f00);
+
 }
 
 .paragraph {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -35,6 +45,4 @@
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
-  background-color: #e67300;
-}
+

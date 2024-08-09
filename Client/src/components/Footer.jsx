@@ -4,7 +4,7 @@ import logo from "/images/evangadi-logo-footer.png";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-700  sticky text-white">
+    <div className="bg-slate-700  sticky text-white mt-24">
       <div className="w-11/12 md:w-9/12 flex flex-col md:flex-row justify-between m-auto py-7">
         <div className="flex flex-col items-center md:items-start mb-6 md:mb-0">
           <div className="mb-4">
