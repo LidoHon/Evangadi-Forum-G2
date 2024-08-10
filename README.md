@@ -76,7 +76,6 @@ To get started with the Evangadi Forum project, follow these steps:
    - For the Backend:
 
      ```bash
-     cd server
      npm install
      ```
 
@@ -92,10 +91,10 @@ To get started with the Evangadi Forum project, follow these steps:
    Create a `.env` file in the `server` directory and add the required environment variables:
 
    ```plaintext
-   DB_USER=
-   DB_PASSWORD=
-   DB_NAME=
-   JWT_SECRET=
+   DB_USER= <>
+   DB_PASSWORD= <>
+   DB_NAME=<>
+   JWT_SECRET=<>
    ```
 
 ## Run the Development Server
