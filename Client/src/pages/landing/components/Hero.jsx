@@ -6,8 +6,8 @@ const Hero = () => {
   return (
     <div className="mt-12">
       <div>
-        <img src={question} alt="" className="absolute left-2 top-0" />
-        <img src={think} alt="" className="absolute right-1 top-0" />
+        <img src={question} alt="" className="absolute left-2 top-5" />
+        <img src={think} alt="" className="absolute right-1 top-5" />
         <h1 className="text-center text-7xl font-mono font-black mx-auto block mt-20">
           Don't make asking <br />
           awkward

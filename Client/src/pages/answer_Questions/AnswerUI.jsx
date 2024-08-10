@@ -48,7 +48,12 @@ const AnswerUI = () => {
     };
 
     fetchAnswers();
-  }, [questionid]);
+	// // set up interval to fetch user data every 1 seconds
+		 const intervalId = setInterval(fetchAnswers, 1000);
+
+		// // slear the interval when the component unmounts
+		return () => clearInterval(intervalId);
+  }, [questionid,answers]);
 
   useEffect(() => {
     const fetchQuestionDetails = async () => {
@@ -119,6 +124,7 @@ const AnswerUI = () => {
 
       setAnswers((prevAnswers) => [...prevAnswers, newAnswerData]);
       setNewAnswer("");
+	  
     } catch (error) {
       console.error("Error posting answer:", error);
     }
@@ -245,7 +251,7 @@ const AnswerUI = () => {
                       <Link
                         to={`/questions/${questionid}/answers/${answer.answerid}/edit`}
                       >
-                        <button className="px-3 py-1 bg-white text-green-800 border-2 border-green-800 rounded-sm mr-2 hover:bg-green-700 hover:text-white transition duration-300 ease-in-out">
+                        <button className="px-3 py-1 bg-white text-green-800 border-2 border-green-800 rounded-sm mr-2 hover:bg-green-700 hover:text-white transition duration-300 ease-in-out" onConfirm={()=>handleEditAnswer(answer.answerid)}>
                           Edit
                         </button>
                       </Link>
