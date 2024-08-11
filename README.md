@@ -53,7 +53,7 @@ This project utilizes a variety of technologies to ensure a seamless user experi
 - **Profile Management:** Users can update their profiles and manage settings.
 - **Question and Answer System:** Users can ask questions, provide answers, and interact with posts.
 - **Responsive Design:** Ensures compatibility with various devices and screen sizes.
-- **Notifications:** Real-time notifications for user interactions.
+
 
 ## Installation
 
